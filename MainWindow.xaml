@@ -7,7 +7,16 @@
         xmlns:local="clr-namespace:SMC_GUI"
         mc:Ignorable="d"
         
-        Title="SMC_GUI" Height="864" Width="1536" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/ScainetLogo.jpg" Background="#FF737373" ScrollViewer.CanContentScroll="True" Topmost="True" AutomationProperties.IsColumnHeader="True" AutomationProperties.IsRequiredForForm="True" AutomationProperties.IsRowHeader="True" WindowStyle="SingleBorderWindow">
+        Title="SMC_GUI" Height="864" Width="1536" 
+        WindowStartupLocation="CenterScreen" 
+        ResizeMode="NoResize" 
+        Icon="/ScainetLogo.jpg" 
+        Background="#FF737373"
+        ScrollViewer.CanContentScroll="True"
+        AutomationProperties.IsColumnHeader="True" 
+        AutomationProperties.IsRequiredForForm="True" 
+        AutomationProperties.IsRowHeader="True"
+        WindowStyle="SingleBorderWindow">
 
     <Grid Name="Grid">
 

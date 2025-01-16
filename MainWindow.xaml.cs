@@ -246,7 +246,8 @@ namespace SMC_GUI
                 {
                     Content = recipe.title,  // Предполагается, что у Recipe есть свойство title
                     Tag = recipe.itemId,     // Установите тег в itemId
-                    Margin = new Thickness(0, 0, 0, 5)  // Задаем отступ между CheckBox
+                    Margin = new Thickness(0, 0, 0, 5),  // Задаем отступ между CheckBox
+                    
                 };
 
                 // Добавление CheckBox на StackPanel
