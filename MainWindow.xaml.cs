@@ -33,22 +33,27 @@ namespace SMC_GUI
     public partial class MainWindow : Window
     {
         public List<Item> items;
-        public Description Description;
+        public Description Description = new Description
+        {
+            name = "Error",
+            creatorId ="Error",
+            description = "Error",
+            fileId = "Error",
+            localId = "Error",
+            type = "Error"
+        };
         public Dictionary<string, string> XMLAtlasDict = new Dictionary<string, string>();
         public inventoryDescriptions InventoryDescriptions = new inventoryDescriptions();
         public BitmapImage IconMap;
         public Image Icons;
         public MyGUI XMLAtlas;
+        public Dictionary<string, bool> MessageList = new Dictionary<string, bool>();
         public MainWindow()
         {
             InitializeComponent();
             Settings newWindow = new Settings();
             newWindow.DataPassed += NewWindow_DataPassed;
             newWindow.ShowDialog();
-
-
-            
-            
         }
 
         private void NewWindow_DataPassed(object sender, string data)
@@ -82,9 +87,8 @@ namespace SMC_GUI
                 {
                     var size =XMLAtlas.Resource.Group.Size;
                     
-
-                    // Выводим значения переменных
                     Icons = new Image();
+
                     Icons = LocationIcon(SplitString(value,0),
                         SplitString(value,1), IconMap,
                         SplitString(size,0), SplitString(size,1));
@@ -112,7 +116,7 @@ namespace SMC_GUI
                 string info = $"ItemId: {item.itemId}\n" +
                               $"Quantity: {item.quantity}\n" +
                               $"CraftTime: {item.craftTime}\n" +
-                              $"IngridientList:\n {Ingridient[1]}";
+                              $"IngridientList:";
 
 
                 
@@ -128,11 +132,6 @@ namespace SMC_GUI
         }
 
         private void RichTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
@@ -162,8 +161,6 @@ namespace SMC_GUI
                 }
             }
         }
-
-
 
         private void Button_ClickUpload(object sender, RoutedEventArgs e)
         {
@@ -212,34 +209,56 @@ namespace SMC_GUI
 
         private void ReadJsonRecipe(string filepath)
         {
+            // Проверка на пустую строку
             if (string.IsNullOrWhiteSpace(filepath))
             {
                 throw new ArgumentException("Путь к файлу не может быть пустым или нулевым", nameof(filepath));
             }
 
+            // Проверка на существование файла
             if (!File.Exists(filepath))
             {
                 throw new FileNotFoundException($"Файл не найден по пути: {filepath}");
             }
 
-            
+            // Инициализация ридера
             Reader reader = new Reader();
 
-            // Чтение и разбиение файла на строки
-             List<Recipe>txt = reader.ReadJsonToList<Recipe>(filepath);
+            // Чтение JSON и преобразование в список рецептов
+            List<Recipe> recipes = reader.ReadJsonToList<Recipe>(filepath);
 
-            StringBuilder stringBuilder = new StringBuilder();
+            // Создание ScrollViewer
+            ScrollViewer scrollViewer = new ScrollViewer
+            {
+                VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
+                HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled,
+                Width = 400, // Пример ширины
+                Height = 864 // Пример высоты
+            };
 
-            TemplateButton btn = new TemplateButton();
+            // Создание StackPanel для размещения CheckBox
+            StackPanel stackPanel = new StackPanel();
 
+            // Создание CheckBox для каждого рецепта
+            foreach (var recipe in recipes)
+            {
+                CheckBox checkBox = new CheckBox
+                {
+                    Content = recipe.title,  // Предполагается, что у Recipe есть свойство title
+                    Tag = recipe.itemId,     // Установите тег в itemId
+                    Margin = new Thickness(0, 0, 0, 5)  // Задаем отступ между CheckBox
+                };
 
+                // Добавление CheckBox на StackPanel
+                stackPanel.Children.Add(checkBox);
+            }
 
-            CanvasRecipe.Children.Add(btn);
+            // Добавление StackPanel в ScrollViewer
+            scrollViewer.Content = stackPanel;
 
-
-
+            CanvasRecipe.Children.Add(scrollViewer); // Добавляем ScrollViewer на Canvas
         }
-
+        
         private void ReadJson(string filepath)
         {
             List<string> filePathsList = new List<string>();
@@ -256,14 +275,18 @@ namespace SMC_GUI
 
                 if (files.Length > 0)
                 {
+                   
                     foreach (string file in files)
                     {
                         filePathsList.Add(file);
+                        string message = $"Файл: {fileName} найден";
+                        MessageList.Add(message, true);
                     }
                 }
                 else
                 {
-                    Console.WriteLine($"Файлы для {fileName} не найдены.");
+                    string message = $"Файл для {fileName} не найдены.";
+                    MessageList.Add(message, false);
                 }
             }
             
@@ -275,6 +298,10 @@ namespace SMC_GUI
                 {
                     case "description.json":
                         Description = reader.ReadJson<Description>(file);
+                        if (string.IsNullOrEmpty(Description?.name))
+                        {
+                            Description.name = "Error";
+                        }
                         break;
                     case "IconMap.png":
                         try
@@ -300,7 +327,9 @@ namespace SMC_GUI
                 }
             }
 
+            CreateMessageBox();
             CreateNames();
+            
         }
 
         private void RemoveLastTwoLines(Paragraph paragraph)
@@ -410,15 +439,43 @@ namespace SMC_GUI
         {
            ModName.Text = Description.name;
         }
+
+        public void CreateMessageBox()
+        {
+            string text = "";
+            
+            int i = MessageList.Count;
+            int m = 0;
+            string Em = "";
+            foreach (var message in MessageList)
+            {
+                if(message.Value == true)
+                {
+                    m++;
+                }
+                else
+                {
+                    m--;
+                    Em += message.Key;
+                }
+                
+            }
+
+            if (m == i)
+            {
+                text += "Все файлы найдены";
+            }
+            else
+            {
+                text += Em;
+            }
+
+            MessageBox.Show(text, "Status", MessageBoxButton.OK , MessageBoxImage.Information);
+        }
     }
 
 
-    public class TemplateButton
-    {
-        public TextBox TextBox { get; set; } 
-        public string Id { get; set; }
-        public CheckBox CheckBox { get; set; }
-    }
+   
 
     public class Item
     {
