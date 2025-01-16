@@ -230,16 +230,14 @@ namespace SMC_GUI
 
             StringBuilder stringBuilder = new StringBuilder();
 
-            
-            foreach (var line in txt)
-            {
-                string name = $"{line.title} - \n";
-                string id = $"{line.itemId} \n";
-                stringBuilder.AppendLine( name + id);
-            }
+            TemplateButton btn = new TemplateButton();
 
-            
-            TextTxt.Text = stringBuilder.ToString();
+
+
+            CanvasRecipe.Children.Add(btn);
+
+
+
         }
 
         private void ReadJson(string filepath)
@@ -414,7 +412,13 @@ namespace SMC_GUI
         }
     }
 
-    
+
+    public class TemplateButton
+    {
+        public TextBox TextBox { get; set; } 
+        public string Id { get; set; }
+        public CheckBox CheckBox { get; set; }
+    }
 
     public class Item
     {

@@ -15,7 +15,6 @@
         <Button Content="Save" HorizontalAlignment="Left" Margin="768,778,0,0" VerticalAlignment="Top" Height="46" Width="70" Click="Button_ClickSave"/>
         <Button x:Name="__" Content="-" HorizontalAlignment="Left" Margin="470,694,0,0" VerticalAlignment="Top" Height="54" Width="105" Click="Button_ClickReload"/>
         <Button Content="+" HorizontalAlignment="Left" Margin="1025,702,0,0" VerticalAlignment="Top" Height="48" Width="112" Click="Button_ClickUpload"/>
-        <TextBox HorizontalAlignment="Left" Margin="1142,0,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="384" Height="828" TextChanged="TextBox_TextChanged" Name="TextTxt"/>
         <Image HorizontalAlignment="Left" Height="200" Margin="703,68,0,0" VerticalAlignment="Top" Width="200" Name="Icon" Source="/Icon-view.1png.png" Stretch="Fill" RenderTransformOrigin="1,1"/>
         <RichTextBox Margin="470,281,399,174" TextChanged="RichTextBox_TextChanged" Name="RichTextBox">
             <FlowDocument>
@@ -25,6 +24,7 @@
             </FlowDocument>
         </RichTextBox>
         <TextBox HorizontalAlignment="Left" Margin="480,16,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="644" Height="52" Name="ModName" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FFCE8314" Foreground="#FFCE8314" FontSize="24" FontWeight="Bold"/>
+        <Canvas Margin="1142,0,0,0" Name="CanvasRecipe"/>
 
     </Grid>
 </Window>
