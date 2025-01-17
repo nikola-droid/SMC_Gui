@@ -41,6 +41,7 @@ namespace SMC_GUI
     {   
         
         public List<Item> items = new List<Item>();
+        public List<Item> itemsHideout = new List<Item>();
         public Description Description = new Description
         {
             name = "Error",
@@ -83,13 +84,9 @@ namespace SMC_GUI
                 case Config.Mode.Compare:
                     try
                     {
-                        bool compare = CompareJson();
-                        if (compare)
-                        {
-                            MessageBox.Show("Все данные обработаны");
-                            Environment.Exit(1);
-                        }
-                        
+                        CompareJson(Config.InputDirectory);
+                        MessageBox.Show("Все данные обработаны");
+                        Environment.Exit(1);
                     }
                     catch (Exception ex)
                     {
@@ -270,37 +267,7 @@ namespace SMC_GUI
 
         private void Button_ClickSave(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                // Сериализация всей коллекции items
-                
-                string json = JsonConvert.SerializeObject(items, Formatting.Indented);
-                
-                // Укажите корректный путь к файлу, например "data.json"
-                string filePath = Config.OutputFilePath;
-                File.WriteAllText(filePath, json);
-                var message = MessageBox.Show($"Данные успешно сохранены в файл: {filePath}");
-                if (message == MessageBoxResult.OK)
-                {
-                    this.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                
-                loger.Log(fileStream, $"Произошла ошибка при сохранении данных: {ex.Message}",
-                    "ERROR");
-
-                MessageBox.Show("LogError", "Error",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-                Process.Start(new ProcessStartInfo
-                {
-                    FileName = "explorer",
-                    Arguments = Path.GetDirectoryName(LogFilePath),
-                    UseShellExecute = true
-                });
-                Environment.Exit(1);
-            }
+            RestructList();
         }
 
         #region ReadJson and Create: CheckBox,Ingredient, CreateMessageBox, CreateNames()
@@ -749,7 +716,86 @@ namespace SMC_GUI
             return config;
         }
 
+        public void CompareJson(string filepath)
+        {
+            Reader reader = new Reader();
+            string[] files = Directory.GetFiles(filepath);
 
+            foreach (var file in files)
+            {
+                try
+                {
+                    // Чтение JSON из каждого файла
+                    List<Item> fileItems = reader.ReadJson<List<Item>>(file, loger, fileStream, "ERROR");
+                    if (fileItems != null && fileItems.Count > 0)
+                    {
+                        items.AddRange(fileItems);
+                    }
+                    
+                }
+                catch (Exception ex)
+                {
+                    loger.Log(fileStream, $"Ошибка при обработке файла {file}: {ex.Message}"
+                                                                                , "ERROR");
+                }
+            }
+
+            RestructList();
+
+        }
+
+
+        public void Save( string output, List<Item> data)
+        {
+            RestructList();
+            try
+            {
+                
+                string json = JsonConvert.SerializeObject(data, Formatting.Indented);
+
+                string filePath = output;
+                File.WriteAllText(filePath, json);
+                MessageBox.Show($"Данные успешно сохранены в файл: {filePath}");
+                
+            }
+            catch (Exception ex)
+            {
+
+                loger.Log(fileStream, $"Произошла ошибка при сохранении данных: {ex.Message}",
+                    "ERROR");
+
+                MessageBox.Show("LogError", "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = "explorer",
+                    Arguments = Path.GetDirectoryName(LogFilePath),
+                    UseShellExecute = true
+                });
+                Environment.Exit(1);
+            }
+
+
+        }
+
+        public void RestructList()
+        {
+            foreach (var item in items)
+            {
+                switch (item.TypeDropdawun)
+                {
+                    case "Craftbot":
+                        break;
+                    case "Hideout":
+                        itemsHideout.Add(item);
+                        items.Remove(item);
+                        break;
+                }
+            }
+
+            Save(Config.OutputDirectory,items);
+            Save(Config.OutputFilePath,itemsHideout);
+        }
     }
 
 
@@ -768,6 +814,7 @@ namespace SMC_GUI
     }
 
     
+
 
     public class Ingredient
     {
@@ -909,6 +956,8 @@ namespace SMC_GUI
         }
         [JsonProperty("Language")]
         public Language LanguageMod { get; set; }
+        public string OutputDirectory { get; set; }
+        public string InputDirectory { get; set; }
     }
 
 }

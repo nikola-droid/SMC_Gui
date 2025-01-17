@@ -1,10 +1,12 @@
 {
 	"Comment":"Это конфигурационный файл для приложения", 
 	"Mode":"Editor", // Auto/Editor/Compare установить в зависимости от желаеого режима работы
-	"OutputFilePath":"data.json", // путь к выходной папке
+	"OutputFilePath":"Data/hideout.json", // путь к выходной папке
 	"UsInputFilePath": false,
 	"InputFilePath": " ",
 	"LogFilePath":"Log",
 	"SubDirectoryPath":"Axolot Games/Scrap Mechanic", // стандарный путь до папки с игрой
 	"Language":"Ru", // выберите язык для логов
+	"OutputDirectory":"Data/craftbot.json",
+	"InputDirectory":"Data",
 }
