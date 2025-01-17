@@ -61,11 +61,58 @@ namespace SMC_GUI
         public Loger loger;
         public FileStream fileStream;
 
+        public string LogFileName;
+        public string LogFilePath;
+
         public MainWindow()
         {
+            loger = new Loger();
+            EngLibrary.OpenFileDialog openFileDialog = new EngLibrary.OpenFileDialog();
             Config = ReadConfig(filepath: "Config.json");
-            InitializeComponent();
-            NewWindow_DataPassed(Dialog());
+            LogFileName = Path.Combine(loger.GenerateLogFileName()); 
+            LogFilePath = Path.Combine(Config.LogFilePath, LogFileName);
+            fileStream = loger.CreateLogFile(Path.Combine(Config.LogFilePath, LogFileName));
+
+            switch (Config.OperationMode)
+            {
+                case Config.Mode.Editor:
+                    InitializeComponent();
+                    NewWindow_DataPassed(openFileDialog.Dialog(SubDirectoryPath: Config.SubDirectoryPath,
+                        mode: 1, loger, fileStream));
+                    break;
+                case Config.Mode.Compare:
+                    try
+                    {
+                        bool compare = CompareJson();
+                        if (compare)
+                        {
+                            MessageBox.Show("Все данные обработаны");
+                            Environment.Exit(1);
+                        }
+                        
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        loger.Log(fileStream, ex.Message, "ERROR");
+
+                        MessageBox.Show("LogError", "Error",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                        Process.Start(new ProcessStartInfo
+                        {
+                            FileName = "explorer",
+                            Arguments = Path.GetDirectoryName(LogFilePath),
+                            UseShellExecute = true
+                        });
+                    Environment.Exit(1);
+                    }
+                    break;
+                case Config.Mode.Auto:
+                    MessageBox.Show("Извините пока что этот режим не готов", "Information",
+                        MessageBoxButton.OK, MessageBoxImage.Information);
+                    Environment.Exit(1);
+                    break;
+            }
         }
 
         private void NewWindow_DataPassed( string data)
@@ -75,8 +122,7 @@ namespace SMC_GUI
             DisplaySystemParameters();
             ResizeWindow();
             ModsName();
-            loger = new Loger();
-            fileStream = loger.CreateLogFile(filepath:"Log/Log.txt");
+           
         }
 
         private string GetDropButton()
@@ -128,12 +174,18 @@ namespace SMC_GUI
                 }
                 else
                 {
-                    loger.Log(fileStream, $"Key '{tag}' not found in the dictionary.",
+                    loger.Log(fileStream, $"Ключ '{tag}' не найден в словаре.",
                         "ERROR");
 
                     MessageBox.Show("LogError", "Error",
                         MessageBoxButton.OK, MessageBoxImage.Error);
-                    this.Close();
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = "explorer",
+                        Arguments = Path.GetDirectoryName(LogFilePath),
+                        UseShellExecute = true
+                    });
+                    Environment.Exit(1);
                 }
 
                 RichTextBox.Document.Blocks.Clear();
@@ -225,7 +277,7 @@ namespace SMC_GUI
                 string json = JsonConvert.SerializeObject(items, Formatting.Indented);
                 
                 // Укажите корректный путь к файлу, например "data.json"
-                string filePath = "data.json";
+                string filePath = Config.OutputFilePath;
                 File.WriteAllText(filePath, json);
                 var message = MessageBox.Show($"Данные успешно сохранены в файл: {filePath}");
                 if (message == MessageBoxResult.OK)
@@ -241,7 +293,13 @@ namespace SMC_GUI
 
                 MessageBox.Show("LogError", "Error",
                     MessageBoxButton.OK, MessageBoxImage.Error);
-                this.Close();
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = "explorer",
+                    Arguments = Path.GetDirectoryName(LogFilePath),
+                    UseShellExecute = true
+                });
+                Environment.Exit(1);
             }
         }
 
@@ -256,7 +314,13 @@ namespace SMC_GUI
 
                 MessageBox.Show("LogError", "Error",
                     MessageBoxButton.OK, MessageBoxImage.Error);
-                this.Close();
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = "explorer",
+                    Arguments = Path.GetDirectoryName(LogFilePath),
+                    UseShellExecute = true
+                });
+                Environment.Exit(1);
             }
 
             // Проверка на существование файла
@@ -267,14 +331,20 @@ namespace SMC_GUI
 
                 MessageBox.Show("LogError", "Error",
                     MessageBoxButton.OK, MessageBoxImage.Error);
-                this.Close();
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = "explorer",
+                    Arguments = Path.GetDirectoryName(LogFilePath),
+                    UseShellExecute = true
+                });
+                Environment.Exit(1);
             }
 
             // Инициализация ридера
             Reader reader = new Reader();
 
             // Чтение JSON и преобразование в список рецептов
-            List<Recipe> recipes = reader.ReadJsonToList<Recipe>(filepath);
+            List<Recipe> recipes = reader.ReadJsonToList<Recipe>(filepath, loger, fileStream, "ERROR");
 
             // Создание ScrollViewer
             ScrollViewer scrollViewer = new ScrollViewer
@@ -318,7 +388,8 @@ namespace SMC_GUI
                     Content = recipe.title,  // Предполагается, что у Recipe есть свойство title
                     Tag = ingredient,        // Установите тег в объект Ingredient
                     Margin = new Thickness(0, 0, 5, 0), // Отступ между элементами
-                    IsEnabled = false
+                    IsEnabled = false,
+                    Foreground = new SolidColorBrush(Colors.White) // Установка цвета текста
                 };
 
                 checkBox.Checked += CheckBox_Checked;
@@ -358,12 +429,18 @@ namespace SMC_GUI
 
                 MessageBox.Show("LogError", "Error",
                     MessageBoxButton.OK, MessageBoxImage.Error);
-                this.Close();
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = "explorer",
+                    Arguments = Path.GetDirectoryName(LogFilePath),
+                    UseShellExecute = true
+                });
+                Environment.Exit(1);
             }
 
             foreach (var fileName in filesToSearch)
             {
-                string[] files = Directory.GetFiles(filepath,fileName , SearchOption.AllDirectories);
+                string[] files = Directory.GetFiles(filepath,fileName, SearchOption.AllDirectories);
 
                 if (files.Length > 0)
                 {
@@ -372,7 +449,7 @@ namespace SMC_GUI
                     {
                         filePathsList.Add(file);
                         string message = $"Файл: {fileName} найден";
-                        MessageList.Add(message, true);
+                        MessageList.Add(message + file, true);
                     }
                 }
                 else
@@ -389,7 +466,7 @@ namespace SMC_GUI
                 switch (Path.GetFileName(file))
                 {
                     case "description.json":
-                        Description = reader.ReadJson<Description>(file);
+                        Description = reader.ReadJson<Description>(file, loger, fileStream, "ERROR");
                         if (string.IsNullOrEmpty(Description?.name))
                         {
                             Description.name = "Error";
@@ -408,14 +485,15 @@ namespace SMC_GUI
                         }
                         break;
                     case "IconMap.xml":
-                         XMLAtlas = reader.SerializerXML<MyGUI>(file);
+                         XMLAtlas = reader.SerializerXML<MyGUI>(file, loger, fileStream, "ERROR");
                         foreach (var index in XMLAtlas.Resource.Group.Indices)
                         {
                             XMLAtlasDict.Add(index.Name,index.Frame.Point);
                         }
                         break;
                     case "inventoryDescriptions.json":
-                        InventoryDescriptions.description = reader.ReadJsonAnNormal<string,string>(file);
+                        InventoryDescriptions.description = reader.ReadJsonAnNormal<string,string>(file,
+                                                                            loger, fileStream, "ERROR");
                         break;
                 }
             }
@@ -424,7 +502,7 @@ namespace SMC_GUI
             CreateNames();
             
         }
-#endregion
+        #endregion
         
         private Image LocationIcon(int offsetX, int offsetY, BitmapImage IconMap, int width, int height)
         {
@@ -467,10 +545,10 @@ namespace SMC_GUI
             double menuHeight = SystemParameters.MenuHeight;
             double captionHeight = SystemParameters.CaptionHeight;
 
-            Console.WriteLine($"Screen Width: {screenWidth}");
-            Console.WriteLine($"Screen Height: {screenHeight}");
-            Console.WriteLine($"Menu Height: {menuHeight}");
-            Console.WriteLine($"Caption Height: {captionHeight}");
+            //Console.WriteLine($"Screen Width: {screenWidth}");
+            //Console.WriteLine($"Screen Height: {screenHeight}");
+            //Console.WriteLine($"Menu Height: {menuHeight}");
+            //Console.WriteLine($"Caption Height: {captionHeight}");
         }
 
         public void ResizeWindow()
@@ -523,7 +601,8 @@ namespace SMC_GUI
             else
             {
                 text += Em;
-                MessageBox.Show(text, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(text, "Information",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
             
@@ -577,6 +656,7 @@ namespace SMC_GUI
                 }
             }
         }
+        
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
             CheckBox checkBox = sender as CheckBox;
@@ -661,42 +741,15 @@ namespace SMC_GUI
 
             return template;
         }
-
-        public string Dialog()
-        {
-            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
-            // Получаем путь к Roaming AppData
-            string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string subDirectory = "Axolot Games\\Scrap Mechanic"; // Замените на нужное имя подкаталога
-            string initialDirectory = Path.Combine(appDataPath, subDirectory);
-
-            // Проверяем, существует ли указанная директория
-            if (Directory.Exists(initialDirectory))
-            {
-                // Устанавливаем начальную директорию
-                dialog.InitialDirectory = initialDirectory;
-            }
-            else
-            {
-                MessageBox.Show($"Подкаталог '{subDirectory}' не найден в '{appDataPath}'.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                dialog.InitialDirectory = appDataPath; // Если подкаталог не найден, используем LocalApplicationData
-            }
-
-            dialog.IsFolderPicker = true;
-            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
-            {
-                return dialog.FileName;
-            }
-
-            return null;
-        }
-
+        
         public Config ReadConfig(string filepath)
         {
             Reader reader = new Reader();
-            Config config = reader.ReadJson<Config>(filepath);
+            Config config = reader.ReadJson<Config>(filepath, loger, fileStream, "ERROR");
             return config;
         }
+
+
     }
 
 
@@ -714,14 +767,7 @@ namespace SMC_GUI
         public string TypeDropdawun { get; set; }
     }
 
-    public class ItemHideout
-    {
-        public string comment { get; set; }
-        public string itemId { get; set; }
-        public int quantity { get; set; }
-        public int craftTime { get; set; }
-        public List<IngredientHideout> ingredientList { get; set; }
-    }
+    
 
     public class Ingredient
     {
@@ -751,14 +797,6 @@ namespace SMC_GUI
             textBox = textBox1;
             comment = comment1;
         }
-    }
-
-    public class IngredientHideout
-    {
-        public int quantity { get; set; }
-        public string itemId { get; set; }
-        public string name { get; set; }
-        public TextBox textBox { get; set; }
     }
 
     public class TaggedRun : Run
@@ -851,17 +889,26 @@ namespace SMC_GUI
 
     public class Config
     {
-        public string Comment { get; set; }
         public enum Mode
         {
             Auto,      // Автоматический режим
-            Manually   // Ручной режим
+            Editor,   // Ручной режим
+            Compare  //Объединение многих json в 1
         }
+        [JsonProperty("Mode")]
         public Mode OperationMode { get; set; }
         public string OutputFilePath { get; set; }
-
         public bool UsInputFilePath { get; set; }
         public string InputFilePath { get; set; }
+        public string LogFilePath { get; set; }
+        public string SubDirectoryPath { get; set; }
+        public enum Language
+        {
+            Ru,
+            En
+        }
+        [JsonProperty("Language")]
+        public Language LanguageMod { get; set; }
     }
 
 }

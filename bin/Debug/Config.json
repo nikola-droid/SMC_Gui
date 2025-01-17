@@ -1,7 +1,10 @@
 {
 	"Comment":"Это конфигурационный файл для приложения", 
-	"Mode":"Manually", // Auto/Mamually установить в зависимости от желаеого режима работы
+	"Mode":"Editor", // Auto/Editor/Compare установить в зависимости от желаеого режима работы
 	"OutputFilePath":"data.json", // путь к выходной папке
 	"UsInputFilePath": false,
-	"InputFilePath": " "
+	"InputFilePath": " ",
+	"LogFilePath":"Log",
+	"SubDirectoryPath":"Axolot Games/Scrap Mechanic", // стандарный путь до папки с игрой
+	"Language":"Ru", // выберите язык для логов
 }
