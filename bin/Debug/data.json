@@ -1,0 +1,56 @@
+[
+  {
+    "comment": "Door Hinge Bearing",
+    "itemId": "5882d7bf-8434-476d-bf4b-c99da38d8d20",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 1,
+        "itemId": "30a2288b-e88e-4a92-a916-1edbfc2b2dac",
+        "comment": "Скрап камень"
+      },
+      {
+        "quantity": 1,
+        "itemId": "6bb84152-c4d7-4644-bc37-a3becd79298d",
+        "comment": "Контроллер 3 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Modern Glass Door",
+    "itemId": "e96d4d00-7634-4c87-a324-461f79165ae3",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 1,
+        "itemId": "968de65c-75f3-471b-954e-6165a4b6d3d6",
+        "comment": "Скрап дерево"
+      },
+      {
+        "quantity": 1,
+        "itemId": "598d865c-324c-4129-9c57-21a6abd2cb2e",
+        "comment": "Контроллер 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Warehouse Door",
+    "itemId": "37b9bf71-2915-44a8-b98c-d137057c2168",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 1,
+        "itemId": "968de65c-75f3-471b-954e-6165a4b6d3d6",
+        "comment": "Скрап дерево"
+      },
+      {
+        "quantity": 1,
+        "itemId": "f74c2891-79a9-45e0-982e-4896651c2e25",
+        "comment": "Химикаты"
+      }
+    ]
+  }
+]

@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icon-view.1png.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("scainetlogo.ico")]
 
 

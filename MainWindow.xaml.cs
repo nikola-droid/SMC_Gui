@@ -27,6 +27,9 @@ using System.Xml;
 using System.Xml.Serialization;
 using Xceed.Wpf.Toolkit.Primitives;
 using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
+using Formatting = Newtonsoft.Json.Formatting;
+using Microsoft.Win32;
+using Microsoft.WindowsAPICodePack.Dialogs;
 
 
 namespace SMC_GUI
@@ -54,22 +57,26 @@ namespace SMC_GUI
         public MyGUI XMLAtlas;
         public Dictionary<string, bool> MessageList = new Dictionary<string, bool>();
         public List<CheckBox> CheckBoxes = new List<CheckBox>();
+        public Config Config;
+        public Loger loger;
+        public FileStream fileStream;
+
         public MainWindow()
         {
+            Config = ReadConfig(filepath: "Config.json");
             InitializeComponent();
-            Settings newWindow = new Settings();
-            newWindow.DataPassed += NewWindow_DataPassed;
-            newWindow.ShowDialog();
+            NewWindow_DataPassed(Dialog());
         }
 
-        private void NewWindow_DataPassed(object sender, string data)
+        private void NewWindow_DataPassed( string data)
         {
             ReadJson(filepath:data);
             ReadJsonRecipe(filepath: "Files/SurvivalRecipeList.json");
             DisplaySystemParameters();
             ResizeWindow();
             ModsName();
-
+            loger = new Loger();
+            fileStream = loger.CreateLogFile(filepath:"Log/Log.txt");
         }
 
         private string GetDropButton()
@@ -121,7 +128,12 @@ namespace SMC_GUI
                 }
                 else
                 {
-                    throw new NullReferenceException($"Key '{tag}' not found in the dictionary.");
+                    loger.Log(fileStream, $"Key '{tag}' not found in the dictionary.",
+                        "ERROR");
+
+                    MessageBox.Show("LogError", "Error",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    this.Close();
                 }
 
                 RichTextBox.Document.Blocks.Clear();
@@ -133,6 +145,7 @@ namespace SMC_GUI
                     // Создаем новый элемент
                     Item item = new Item
                     {
+                        comment = selectedListBoxItem.Content.ToString(),
                         itemId = selectedListBoxItem.Tag.ToString(),
                         ingredientList = new List<Ingredient>(),
                         craftTime = 1,
@@ -173,6 +186,7 @@ namespace SMC_GUI
                     // Создаем новый элемент
                     Item item = new Item
                     {
+                        comment = selectedListBoxItem.Content.ToString(),
                         itemId = selectedListBoxItem.Tag.ToString(),
                         ingredientList = new List<Ingredient>(),
                         craftTime = 1,
@@ -201,25 +215,59 @@ namespace SMC_GUI
         {
 
         }
-        
+
         private void Button_ClickSave(object sender, RoutedEventArgs e)
         {
-            
+            try
+            {
+                // Сериализация всей коллекции items
+                
+                string json = JsonConvert.SerializeObject(items, Formatting.Indented);
+                
+                // Укажите корректный путь к файлу, например "data.json"
+                string filePath = "data.json";
+                File.WriteAllText(filePath, json);
+                var message = MessageBox.Show($"Данные успешно сохранены в файл: {filePath}");
+                if (message == MessageBoxResult.OK)
+                {
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                
+                loger.Log(fileStream, $"Произошла ошибка при сохранении данных: {ex.Message}",
+                    "ERROR");
+
+                MessageBox.Show("LogError", "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                this.Close();
+            }
         }
 
-#region ReadJson and Create: CheckBox,Ingredient, CreateMessageBox, CreateNames()
+        #region ReadJson and Create: CheckBox,Ingredient, CreateMessageBox, CreateNames()
         private void ReadJsonRecipe(string filepath)
         {
             // Проверка на пустую строку
             if (string.IsNullOrWhiteSpace(filepath))
             {
-                throw new ArgumentException("Путь к файлу не может быть пустым или нулевым", nameof(filepath));
+                loger.Log(fileStream, $"Путь к файлу не может быть пустым или нулевым + {nameof(filepath)}",
+                    "ERROR");
+
+                MessageBox.Show("LogError", "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                this.Close();
             }
 
             // Проверка на существование файла
             if (!File.Exists(filepath))
             {
-                throw new FileNotFoundException($"Файл не найден по пути: {filepath}");
+                loger.Log(fileStream, $"Файл не найден по пути: {filepath}",
+                    "ERROR");
+
+                MessageBox.Show("LogError", "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                this.Close();
             }
 
             // Инициализация ридера
@@ -261,7 +309,8 @@ namespace SMC_GUI
                 Ingredient ingredient = new Ingredient( int.Parse(quantityTextBox.Text), // берем значение из TextBox
                      recipe.itemId,
                     recipe.title,
-                     quantityTextBox);
+                     quantityTextBox,
+                     recipe.title);
                 
             // Создаем CheckBox
                 CheckBox checkBox = new CheckBox
@@ -304,7 +353,12 @@ namespace SMC_GUI
 
             if (string.IsNullOrWhiteSpace(filepath))
             {
-                throw new ArgumentException("Путь к файлу не может быть пустым или нулевым", nameof(filepath));
+                loger.Log(fileStream, $"Путь к файлу не может быть пустым или нулевым {nameof(filepath)}",
+                    "ERROR");
+
+                MessageBox.Show("LogError", "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                this.Close();
             }
 
             foreach (var fileName in filesToSearch)
@@ -500,7 +554,7 @@ namespace SMC_GUI
                             {
                                 ingredient.quantity = 1;
                             }
-
+                            
                             // Добавляем ингредиент в список элемента
                             item.ingredientList.Add(ingredient);
                             item.TypeDropdawun = GetDropButton();
@@ -607,22 +661,62 @@ namespace SMC_GUI
 
             return template;
         }
+
+        public string Dialog()
+        {
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
+            // Получаем путь к Roaming AppData
+            string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string subDirectory = "Axolot Games\\Scrap Mechanic"; // Замените на нужное имя подкаталога
+            string initialDirectory = Path.Combine(appDataPath, subDirectory);
+
+            // Проверяем, существует ли указанная директория
+            if (Directory.Exists(initialDirectory))
+            {
+                // Устанавливаем начальную директорию
+                dialog.InitialDirectory = initialDirectory;
+            }
+            else
+            {
+                MessageBox.Show($"Подкаталог '{subDirectory}' не найден в '{appDataPath}'.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                dialog.InitialDirectory = appDataPath; // Если подкаталог не найден, используем LocalApplicationData
+            }
+
+            dialog.IsFolderPicker = true;
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                return dialog.FileName;
+            }
+
+            return null;
+        }
+
+        public Config ReadConfig(string filepath)
+        {
+            Reader reader = new Reader();
+            Config config = reader.ReadJson<Config>(filepath);
+            return config;
+        }
     }
+
 
 
 
 
     public class Item
     {
+        public string comment { get; set; }
         public string itemId { get; set; }
         public int quantity { get; set; }
         public int craftTime { get; set; }
         public List<Ingredient> ingredientList { get; set; }
+        [JsonIgnore]
         public string TypeDropdawun { get; set; }
     }
 
     public class ItemHideout
     {
+        public string comment { get; set; }
         public string itemId { get; set; }
         public int quantity { get; set; }
         public int craftTime { get; set; }
@@ -633,8 +727,12 @@ namespace SMC_GUI
     {
         public int quantity { get; set; }
         public string itemId { get; set; }
+        [JsonIgnore]
         public string name { get; set; }
+        [JsonIgnore]
         public TextBox textBox { get; set; }
+        
+        public string comment { get; set; }
 
         public Ingredient(Ingredient ingredient)
         {
@@ -642,14 +740,16 @@ namespace SMC_GUI
             itemId = ingredient.itemId;
             name = ingredient.name;
             textBox = ingredient.textBox;
+            comment = ingredient.comment;
         }
 
-        public Ingredient(int quantity1, string itemId1, string name1, TextBox textBox1)
+        public Ingredient(int quantity1, string itemId1, string name1, TextBox textBox1, string comment1)
         {
             quantity = quantity1;
             itemId = itemId1;
             name = name1;
             textBox = textBox1;
+            comment = comment1;
         }
     }
 
@@ -748,4 +848,20 @@ namespace SMC_GUI
         public string itemId { get; set; }
         public string title { get; set; }
     }
+
+    public class Config
+    {
+        public string Comment { get; set; }
+        public enum Mode
+        {
+            Auto,      // Автоматический режим
+            Manually   // Ручной режим
+        }
+        public Mode OperationMode { get; set; }
+        public string OutputFilePath { get; set; }
+
+        public bool UsInputFilePath { get; set; }
+        public string InputFilePath { get; set; }
+    }
+
 }

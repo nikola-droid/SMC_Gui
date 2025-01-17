@@ -18,8 +18,6 @@ C:\Users\NikolaEng\source\repos\SMC_GUI\SMC_GUI\bin\Debug\Newtonsoft.Json.xml
 C:\Users\NikolaEng\source\repos\SMC_GUI\SMC_GUI\obj\Debug\SMC_GUI.csproj.Up2Date
 C:\Users\NikolaEng\source\repos\SMC_GUI\SMC_GUI\bin\Debug\EngLibrary.dll
 C:\Users\NikolaEng\source\repos\SMC_GUI\SMC_GUI\bin\Debug\EngLibrary.pdb
-C:\Users\NikolaEng\source\repos\SMC_GUI\SMC_GUI\obj\Debug\Settings.g.cs
-C:\Users\NikolaEng\source\repos\SMC_GUI\SMC_GUI\obj\Debug\Settings.baml
 C:\Users\NikolaEng\source\repos\SMC_GUI\SMC_GUI\bin\Debug\System.Drawing.Common.dll
 C:\Users\NikolaEng\source\repos\SMC_GUI\SMC_GUI\bin\Debug\System.Drawing.Common.pdb
 C:\Users\NikolaEng\source\repos\SMC_GUI\SMC_GUI\bin\Debug\System.Drawing.Common.xml
@@ -44,3 +42,7 @@ C:\Users\NikolaEng\source\repos\SMC_GUI\SMC_GUI\bin\Debug\ro\Xceed.Wpf.AvalonDoc
 C:\Users\NikolaEng\source\repos\SMC_GUI\SMC_GUI\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\NikolaEng\source\repos\SMC_GUI\SMC_GUI\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\NikolaEng\source\repos\SMC_GUI\SMC_GUI\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\NikolaEng\source\repos\SMC_GUI\SMC_GUI\bin\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Users\NikolaEng\source\repos\SMC_GUI\SMC_GUI\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\NikolaEng\source\repos\SMC_GUI\SMC_GUI\bin\Debug\Microsoft.WindowsAPICodePack.xml
+C:\Users\NikolaEng\source\repos\SMC_GUI\SMC_GUI\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
