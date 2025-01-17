@@ -36,7 +36,7 @@
         <TextBox HorizontalAlignment="Left" Margin="480,16,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="644" Height="52" Name="ModName" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FFCE8314" Foreground="#FFCE8314" FontSize="24" FontWeight="Bold"/>
         <Canvas Margin="1142,0,0,0" Name="CanvasRecipe"/>
         <Button x:Name="MyButton" 
-                Content="Выберете режим" Margin="480,97,911,695" Click="MyButton_Click" >
+                Content="Выберете режим" Margin="480,73,911,719" Click="MyButton_Click" >
             <Button.ContextMenu>
                 <ContextMenu Name="ContextMenu">
                     <MenuItem Header="Craftbot" Click="MenuItem_Click" />
@@ -44,6 +44,7 @@
                 </ContextMenu>
             </Button.ContextMenu>
         </Button>
+        <Button Content="Apply" Margin="480,142,911,652" FontSize="20" Click="Button_Click"/>
 
     </Grid>
 </Window>

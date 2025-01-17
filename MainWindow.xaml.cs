@@ -42,6 +42,7 @@ namespace SMC_GUI
         public MyGUI XMLAtlas;
         public Dictionary<string, bool> MessageList = new Dictionary<string, bool>();
         public List<CheckBox> CheckBoxes = new List<CheckBox>();
+        public List<TextBox> TextBoxes = new List<TextBox>();
         public Config Config;
         public EngLibrary.OpenFileDialog openFileDialog;
         public Loger loger;
@@ -66,10 +67,21 @@ namespace SMC_GUI
             switch (Config.OperationMode)
             {
                 case Config.Mode.Editor:
-                    InitializeComponent();
-                    NewWindow_DataPassed(openFileDialog.Dialog(SubDirectoryPath: Config.SubDirectoryPath,
-                        mode:"MessageBox", loger, fileStream,
-                        Config.LogFilePath, "ERROR"));
+                    if (Config.UsInputFilePath)
+                    {
+                        InitializeComponent();
+                        NewWindow_DataPassed(openFileDialog.DialogOpenFolder(subDirectoryPath: Config.SubDirectoryPath,
+                            mode: "MessageBox", loger, fileStream,
+                            Config.LogFilePath, "ERROR"));
+                    }
+                    else
+                    {
+                        InitializeComponent();
+                        NewWindow_DataPassed(openFileDialog.DialogOpenFolder(subDirectoryPath: Config.SubDirectoryPath,
+                            mode: "MessageBox", loger, fileStream,
+                            Config.LogFilePath, "ERROR"));
+                    }
+                    
                     break;
                 case Config.Mode.Compare:
                     try
@@ -89,6 +101,19 @@ namespace SMC_GUI
                     MessageBox.Show("Извините пока что этот режим не готов", "Information",
                         MessageBoxButton.OK, MessageBoxImage.Information);
                     Environment.Exit(1);
+                    break;
+                case Config.Mode.EditCraft:
+                    InitializeComponent();
+                    if (Config.UsInputFilePath)
+                    {
+                        ReadCompleateCraftJson(Config.InputFilePath);
+                    }
+                    else
+                    {
+                        ReadCompleateCraftJson(openFileDialog.DialogOpenFile(
+                            mode: "MessageBox", loger, fileStream, Config.LogFilePath,
+                            "ERROR"));
+                    }
                     break;
             }
         }
@@ -110,13 +135,15 @@ namespace SMC_GUI
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-            Console.WriteLine(items.Count);
             foreach (var VARIABLE in CheckBoxes)
             {
                 VARIABLE.IsEnabled = true; 
                 VARIABLE.IsChecked = false;
-                
+            }
+
+            foreach (var VARIABLE in TextBoxes)
+            {
+                VARIABLE.Text = "1";
             }
             // Получаем доступ к ListBox
             listBox = sender as ListBox;
@@ -139,15 +166,11 @@ namespace SMC_GUI
                     {
                         drawingBrush.Drawing = CreateDrawing(Brushes.Green);
                     }
-                    else
-                    {
-                        drawingBrush.Drawing = CreateDrawing(Brushes.Yellow);
-                    }
                 }
                 else
                 {
                     // Если элемент не найден, задаем другой цвет или оставляем по умолчанию
-                    drawingBrush.Drawing = CreateDrawing(Brushes.White); // Пример обработки, если элемент не найден
+                    drawingBrush.Drawing = CreateDrawing(Brushes.Yellow); 
                 }
 
                 // Присваиваем DrawingBrush выбранному элементу
@@ -157,97 +180,133 @@ namespace SMC_GUI
                 // Получение тега из выбранного элемента
                 var tag = selectedListBoxItem.Tag.ToString();
 
-                // Попытка получить значение из словаря по тегу
-                if (XMLAtlasDict.TryGetValue(tag, out string value))
+                if (Config.OperationMode == Config.Mode.EditCraft)
                 {
-                    var size =XMLAtlas.Resource.Group.Size;
-                    
-                    Icons = new Image();
-
-                    Icons = LocationIcon(SplitString(value,0),
-                        SplitString(value,1), IconMap,
-                        SplitString(size,0),
-                        SplitString(size,1));
-                }
-                else
-                {
-                    loger.Log(fileStream, $"Ключ '{tag}' не найден в словаре.",
-                        "ERROR");
-
-                    MessageBox.Show("LogError", "Error",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-                    openFileDialog.OpenLogDirectory(Config.LogFilePath);
-                    Environment.Exit(1);
-                }
-
-                RichTextBox.Document.Blocks.Clear();
-
-                
-                // Проверяем, пуст ли список items
-                if (items.Count == 0)
-                {
-                    // Создаем новый элемент
-                    Item item = new Item
+                    RichTextBox.Document.Blocks.Clear();
+                    Item existingItem = items.FirstOrDefault(variable =>
+                        variable.itemId == selectedListBoxItem.Tag);
+                    if (existingItem != null)
                     {
-                        TypeDropdawun = GetDropButton(),
-                        comment = selectedListBoxItem.Content.ToString(),
-                        itemId = selectedListBoxItem.Tag.ToString(),
-                        ingredientList = new List<Ingredient>(),
-                        craftTime = 1,
-                        quantity = 1
-                    };
-                    string info = $"Type: {GetDropButton()}\n" + 
-                                  $"ItemId: {selectedListBoxItem.Tag}\n" +
-                                  $"Quantity: {1}\n" +
-                                  $"CraftTime: {1}\n" +
-                                  $"IngridientList:\n";
+                        string ingredientsString = "";
+                        foreach (var item in existingItem.ingredientList)
+                        {
+                            ingredientsString += ViewTemplate(item.quantity.ToString(), item.itemId, item.comment);
+                        }
 
-                    AddParagraphToRichTextBox(info, item);
-                    items.Add(item);
-                    return;
-                }
+                        string info = $"Type: {existingItem.TypeDropdawun}\n" +
+                                      $"ItemId: {existingItem.itemId}\n" +
+                                      $"Quantity: {existingItem.quantity}\n" +
+                                      $"CraftTime: {existingItem.craftTime}\n" +
+                                      $"{ingredientsString}";
 
-                // Поиск существующего элемента
 
-                Item existingItem = items.FirstOrDefault(variable => variable.itemId == selectedListBoxItem.Tag);
-                Console.WriteLine(items.Contains(existingItem));
-                if (existingItem != null)
-                {
-                    string ingredientsString = "";
-                    foreach (var item in existingItem.ingredientList)
-                    {
-                        ingredientsString += ViewTemplate(item.quantity.ToString(), item.itemId, item.name);
+                        AddParagraphToRichTextBox(info, existingItem);
                     }
-                     
-                    string info = $"Type: {existingItem.TypeDropdawun}\n" +
-                                  $"ItemId: {existingItem.itemId}\n" +
-                                  $"Quantity: {existingItem.quantity}\n" +
-                                  $"CraftTime: {existingItem.craftTime}\n"+
-                                  $"{ingredientsString}";
-                                  
+                    else
+                    {
+                        loger.Log(fileStream,"Данные о предмете не найдены","ERROR");
+                        MessageBox.Show("LogError", "Error",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                        openFileDialog.OpenLogDirectory(Config.LogFilePath);
+                        Environment.Exit(1);
+                    }
 
-                    AddParagraphToRichTextBox(info, existingItem);
                 }
                 else
                 {
-                    // Создаем новый элемент
-                    Item item = new Item
+                    // Попытка получить значение из словаря по тегу
+                    if (XMLAtlasDict.TryGetValue(tag, out string value))
                     {
-                        TypeDropdawun = GetDropButton(),
-                        comment = selectedListBoxItem.Content.ToString(),
-                        itemId = selectedListBoxItem.Tag.ToString(),
-                        ingredientList = new List<Ingredient>(),
-                        craftTime = 1,
-                        quantity = 1
-                    };
-                    string info = $"Type: {GetDropButton()}\n" +
-                                  $"ItemId: {selectedListBoxItem.Tag}\n" +
-                                  $"Quantity: {1}\n" +
-                                  $"CraftTime: {1}\n" +
-                                  $"IngridientList:\n";
+                        var size = XMLAtlas.Resource.Group.Size;
 
-                    AddParagraphToRichTextBox(info, item);
-                    items.Add(item);
+                        Icons = new Image();
+
+                        Icons = LocationIcon(SplitString(value, 0),
+                            SplitString(value, 1), IconMap,
+                            SplitString(size, 0),
+                            SplitString(size, 1));
+                    }
+                    else
+                    {
+                        loger.Log(fileStream, $"Ключ '{tag}' не найден в словаре.",
+                            "ERROR");
+
+                        MessageBox.Show("LogError", "Error",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                        openFileDialog.OpenLogDirectory(Config.LogFilePath);
+                        Environment.Exit(1);
+                    }
+
+                    RichTextBox.Document.Blocks.Clear();
+
+
+                    // Проверяем, пуст ли список items
+                    //if (items.Count == 0)
+                    //{
+                    //    // Создаем новый элемент
+                    //    Item item = new Item
+                    //    {
+                    //        TypeDropdawun = " ",
+                    //        comment = selectedListBoxItem.Content.ToString(),
+                    //        itemId = selectedListBoxItem.Tag.ToString(),
+                    //        ingredientList = new List<Ingredient>(),
+                    //        craftTime = 1,
+                    //        quantity = 1
+                    //    };
+                    //    string info = $"Type: Non\n" +
+                    //                  $"ItemId: {selectedListBoxItem.Tag}\n" +
+                    //                  $"Quantity: {1}\n" +
+                    //                  $"CraftTime: {1}\n" +
+                    //                  $"IngridientList:\n";
+
+                    //    AddParagraphToRichTextBox(info, item);
+                    //    items.Add(item);
+                    //    return;
+                    //}
+
+                    // Поиск существующего элемента
+
+                    Item existingItem = items.FirstOrDefault(variable =>
+                        variable.itemId == selectedListBoxItem.Tag);
+                    
+                    if (existingItem != null)
+                    {
+                        string ingredientsString = "";
+                        foreach (var item in existingItem.ingredientList)
+                        {
+                            ingredientsString += ViewTemplate(item.quantity.ToString(), item.itemId, item.name);
+                        }
+
+                        string info = $"Type: {existingItem.TypeDropdawun}\n" +
+                                      $"ItemId: {existingItem.itemId}\n" +
+                                      $"Quantity: {existingItem.quantity}\n" +
+                                      $"CraftTime: {existingItem.craftTime}\n" +
+                                      $"{ingredientsString}";
+
+
+                        AddParagraphToRichTextBox(info, existingItem);
+                    }
+                    else
+                    {
+                        // Создаем новый элемент
+                        Item item = new Item
+                        {
+                            TypeDropdawun = " ",
+                            comment = selectedListBoxItem.Content.ToString(),
+                            itemId = selectedListBoxItem.Tag.ToString(),
+                            ingredientList = new List<Ingredient>(),
+                            craftTime = 1,
+                            quantity = 1
+                        };
+                        string info = $"Type: Non\n" +
+                                      $"ItemId: {selectedListBoxItem.Tag}\n" +
+                                      $"Quantity: {1}\n" +
+                                      $"CraftTime: {1}\n" +
+                                      $"IngridientList:\n";
+
+                        AddParagraphToRichTextBox(info, item);
+                        items.Add(item);
+                    }
                 }
             }
         }
@@ -345,7 +404,7 @@ namespace SMC_GUI
                 {
                     Content = recipe.title,  // Предполагается, что у Recipe есть свойство title
                     Tag = ingredient,        // Установите тег в объект Ingredient
-                    Margin = new Thickness(0, 0, 5, 0), // Отступ между элементами
+                    Margin = new Thickness(0, 0, 5, 10), // Отступ между элементами
                     IsEnabled = false,
                     Foreground = new SolidColorBrush(Colors.White) // Установка цвета текста
                 };
@@ -354,6 +413,7 @@ namespace SMC_GUI
                 checkBox.Unchecked += CheckBox_Unchecked;
 
                 CheckBoxes.Add(checkBox);
+                TextBoxes.Add(quantityTextBox);
 
 
 
@@ -464,6 +524,47 @@ namespace SMC_GUI
             CreateNames();
             
         }
+
+        private void ReadCompleateCraftJson(string filepath)
+        {
+            Reader reader = new Reader();
+            items = reader.ReadJson<List<Item>>(filepath, loger, fileStream, "ERROR",
+                openFileDialog, Config.LogFilePath);
+            foreach (var item in items)
+            {
+                DrawingBrush drawingBrush = new DrawingBrush(); // Создаем DrawingBrush один раз
+                if (item.comment == null)
+                {
+
+                    drawingBrush.Drawing = CreateDrawing(Brushes.DarkRed);
+
+                    ListBox.Items.Add(new ListBoxItem
+                    {
+                        Content = item.comment ?? item.itemId,
+                        Tag = item.itemId,
+                        FontSize = 14,
+                        Width = 420,
+                        Height = 50,
+                        Background = drawingBrush,
+                    });
+                }
+                else
+                {
+                    drawingBrush.Drawing = CreateDrawing(Brushes.Green);
+
+                    ListBox.Items.Add(new ListBoxItem
+                    {
+                        Content = item.comment ?? item.itemId,
+                        Tag = item.itemId,
+                        FontSize = 14,
+                        Width = 420,
+                        Height = 50,
+                        Background = drawingBrush,
+                    });
+                }
+            }
+        }
+        
         #endregion
         
         private Image LocationIcon(int offsetX, int offsetY, BitmapImage IconMap, int width, int height)
@@ -598,7 +699,7 @@ namespace SMC_GUI
                             
                             // Добавляем ингредиент в список элемента
                             item.ingredientList.Add(ingredient);
-
+                            Console.WriteLine(item.ingredientList.Count);
                             // Создаем новый параграф для добавления информации об ингредиенте
                             Paragraph newParagraph = new Paragraph();
 
@@ -617,29 +718,45 @@ namespace SMC_GUI
                 }
             }
         }
-        
+
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
             CheckBox checkBox = sender as CheckBox;
+            Ingredient ingredientToRemove = checkBox.Tag as Ingredient;
+
+            if (ingredientToRemove == null)
+            {
+                Console.WriteLine("Ingredient from CheckBox is not valid.");
+                return;
+            }
+
             List<Paragraph> paragraphsToRemove = new List<Paragraph>(); // Список для хранения параграфов, которые нужно удалить
 
             foreach (var block in RichTextBox.Document.Blocks)
             {
                 if (block is Paragraph paragraph)
                 {
-                    bool isParagraphTagMatched = paragraph.Tag == checkBox.Tag as Ingredient;
+                    Ingredient ingredientInParagraph = paragraph.Tag as Ingredient;
 
+                    // Проверка на совпадение тегов параграфа и чекбокса
+                    if (ingredientInParagraph != null && ingredientInParagraph.itemId == ingredientToRemove.itemId)
+                    {
+                        paragraphsToRemove.Add(paragraph);
+                    }
+
+                    // Обработка инлайн-элементов
                     foreach (var inline in paragraph.Inlines)
                     {
                         if (inline is TaggedRun taggedRun)
                         {
-                            Item item = taggedRun.Tag as Item; // Предполагаем, что это корректный каст
+                            Item item = taggedRun.Tag as Item;
 
                             if (item != null && item.ingredientList.Count > 0)
                             {
-                                Ingredient ingredientToRemove = checkBox.Tag as Ingredient;
-                                item.ingredientList.Remove(ingredientToRemove); // Удаляем ингредиент из списка
+                                // Удаляем ингредиент из списка
+                                item.ingredientList.RemoveAll(ingredient => ingredient.itemId == ingredientToRemove.itemId);
 
+                                // Выводим информацию о текущем состоянии ingredientList
                                 Console.WriteLine(item.ingredientList.Count);
                                 foreach (var ingredient in item.ingredientList)
                                 {
@@ -647,13 +764,6 @@ namespace SMC_GUI
                                 }
                             }
                         }
-                    }
-
-                    // Если тег параграфа совпадает с тегом чекбокса, добавляем параграф в список на удаление
-                    if (isParagraphTagMatched)
-                    {
-                        Console.WriteLine(paragraph);
-                        paragraphsToRemove.Add(paragraph);
                     }
                 }
             }
@@ -664,6 +774,8 @@ namespace SMC_GUI
                 RichTextBox.Document.Blocks.Remove(paragraph);
             }
         }
+
+
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -768,8 +880,6 @@ namespace SMC_GUI
             Save("Output/hideout.json", itemsHideout, "Output/hideout.json");
         }
 
-
-
         public void Save( string output, List<Item> data, string filepaths)
         {
             string json = JsonConvert.SerializeObject(data, Formatting.Indented);
@@ -780,8 +890,8 @@ namespace SMC_GUI
             {
                 File.WriteAllText(filePath, json);
                 MessageBox.Show($"Данные успешно сохранены в файл: {filePath}");
-                openFileDialog.OpenLogDirectory(Config.LogFilePath);
-                Environment.Exit(1);
+                openFileDialog.OpenLogDirectory(Path.GetDirectoryName(filePath));
+                
 
             }
             catch (Exception ex)
@@ -831,10 +941,60 @@ namespace SMC_GUI
 
             // Сохраняем оба списка
             Save(pathcraftbot, items, pathcraftbot);
-            Save(Config.OutputFilePath+filenamecraftbot, itemsHideout, Config.OutputFilePath + filenamecraftbot);
+            Save(Config.OutputFilePath+filenamecraftbot, itemsHideout,
+                Config.OutputFilePath + filenamecraftbot);
         }
 
-        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string info = "";
+            Item item = null; // Инициализируем item как null
+            CheckBox checkBox = sender as CheckBox;
+
+            // Список для хранения Paragraph, которые необходимо удалить
+            List<Paragraph> paragraphsToRemove = new List<Paragraph>();
+
+            foreach (var block in RichTextBox.Document.Blocks)
+            {
+                if (block is Paragraph paragraph)
+                {
+                    foreach (var inline in paragraph.Inlines)
+                    {
+                        if (inline is TaggedRun taggedRun)
+                        {
+                            item = taggedRun.Tag as Item; // Предполагается, что Tag возвращает Item
+
+                            if (item != null) // Проверяем, что item не null
+                            {
+                                item.TypeDropdawun = GetDropButton(); // Обновляем TypeDropdown
+                                paragraphsToRemove.Add(paragraph); // Добавляем paragraph в список
+
+                                // Формируем строку с информацией о элементе
+                                info += $"Type: {item.TypeDropdawun}\n" +
+                                        $"ItemId: {item.itemId}\n" + // Измените это на ваш идентификатор элемента
+                                        $"Quantity: {item.quantity}\n" +
+                                        $"CraftTime: {item.craftTime}\n" +
+                                        $"IngredientList: {string.Join(", ", item.ingredientList)}\n"; // Предполагаем, что это перечисление
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Удаляем все собранные Paragraph после завершения итерации
+            foreach (var paragraph in paragraphsToRemove)
+            {
+                RichTextBox.Document.Blocks.Remove(paragraph);
+            }
+
+            // Добавляем новую информацию в RichTextBox
+            if (item != null) // Проверяем, что item не null для добавления информации
+            {
+                AddParagraphToRichTextBox(info, item);
+            }
+        }
+
+
     }
 
 
@@ -851,9 +1011,6 @@ namespace SMC_GUI
         [JsonIgnore]
         public string TypeDropdawun { get; set; }
     }
-
-    
-
 
     public class Ingredient
     {
@@ -980,7 +1137,8 @@ namespace SMC_GUI
         {
             Auto,      // Автоматический режим
             Editor,   // Ручной режим
-            Compare  //Объединение многих json в 1
+            Compare,  //Объединение многих json в 1
+            EditCraft
         }
         [JsonProperty("Mode")]
         public Mode OperationMode { get; set; }
