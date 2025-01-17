@@ -21,7 +21,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
@@ -37,19 +37,6 @@
               "EditorCaption": ""
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "C:\\Users\\NikolaEng\\source\\repos\\EngLibrary\\EngLibrary\\Class1.cs",
-              "RelativeDocumentMoniker": "..\\..\\EngLibrary\\EngLibrary\\Class1.cs",
-              "ToolTip": "C:\\Users\\NikolaEng\\source\\repos\\EngLibrary\\EngLibrary\\Class1.cs",
-              "RelativeToolTip": "..\\..\\EngLibrary\\EngLibrary\\Class1.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAgwEMAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-17T13:10:34.558Z",
-              "EditorCaption": ""
-            },
-            {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
@@ -59,13 +46,26 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Users\\NikolaEng\\source\\repos\\EngLibrary\\EngLibrary\\Class1.cs",
+              "RelativeDocumentMoniker": "..\\..\\EngLibrary\\EngLibrary\\Class1.cs",
+              "ToolTip": "C:\\Users\\NikolaEng\\source\\repos\\EngLibrary\\EngLibrary\\Class1.cs",
+              "RelativeToolTip": "..\\..\\EngLibrary\\EngLibrary\\Class1.cs",
+              "ViewState": "AgIAAKkBAAAAAAAAAADwv6wBAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-17T17:13:46.04Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAMICAAAAAAAAAAA2wPICAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAADgAAAAAAAAAAADgv0UAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-16T14:40:09.971Z",
               "EditorCaption": ""

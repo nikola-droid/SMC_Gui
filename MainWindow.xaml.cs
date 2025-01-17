@@ -1,35 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Newtonsoft.Json;
 using Path = System.IO.Path;
 using EngLibrary;
-using System.IO.Ports;
-using System.Security.Cryptography;
-using System.Xml.Linq;
-using Newtonsoft.Json.Linq;
-using System.Xml.Linq;
-using System.Xml;
 using System.Xml.Serialization;
-using Xceed.Wpf.Toolkit.Primitives;
-using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 using Formatting = Newtonsoft.Json.Formatting;
-using Microsoft.Win32;
-using Microsoft.WindowsAPICodePack.Dialogs;
+
 
 
 namespace SMC_GUI
@@ -59,19 +43,24 @@ namespace SMC_GUI
         public Dictionary<string, bool> MessageList = new Dictionary<string, bool>();
         public List<CheckBox> CheckBoxes = new List<CheckBox>();
         public Config Config;
+        public EngLibrary.OpenFileDialog openFileDialog;
         public Loger loger;
         public FileStream fileStream;
 
         public string LogFileName;
         public string LogFilePath;
 
+        public ListBox listBox;
+
         public MainWindow()
         {
             loger = new Loger();
-            EngLibrary.OpenFileDialog openFileDialog = new EngLibrary.OpenFileDialog();
+            openFileDialog = new EngLibrary.OpenFileDialog();
             Config = ReadConfig(filepath: "Config.json");
             LogFileName = Path.Combine(loger.GenerateLogFileName()); 
             LogFilePath = Path.Combine(Config.LogFilePath, LogFileName);
+            loger.DestroyLogFile(Config.LogFilePath,Config.TimeSpan, loger,fileStream,
+                "ERROR",openFileDialog);
             fileStream = loger.CreateLogFile(Path.Combine(Config.LogFilePath, LogFileName));
 
             switch (Config.OperationMode)
@@ -79,29 +68,21 @@ namespace SMC_GUI
                 case Config.Mode.Editor:
                     InitializeComponent();
                     NewWindow_DataPassed(openFileDialog.Dialog(SubDirectoryPath: Config.SubDirectoryPath,
-                        mode: 1, loger, fileStream));
+                        mode:"MessageBox", loger, fileStream,
+                        Config.LogFilePath, "ERROR"));
                     break;
                 case Config.Mode.Compare:
                     try
                     {
                         CompareJson(Config.InputDirectory);
-                        MessageBox.Show("Все данные обработаны");
-                        Environment.Exit(1);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
                         loger.Log(fileStream, ex.Message, "ERROR");
-
                         MessageBox.Show("LogError", "Error",
                             MessageBoxButton.OK, MessageBoxImage.Error);
-                        Process.Start(new ProcessStartInfo
-                        {
-                            FileName = "explorer",
-                            Arguments = Path.GetDirectoryName(LogFilePath),
-                            UseShellExecute = true
-                        });
-                    Environment.Exit(1);
+                        openFileDialog.OpenLogDirectory(Config.LogFilePath);
+                        Environment.Exit(1);
                     }
                     break;
                 case Config.Mode.Auto:
@@ -138,7 +119,7 @@ namespace SMC_GUI
                 
             }
             // Получаем доступ к ListBox
-            ListBox listBox = sender as ListBox;
+            listBox = sender as ListBox;
 
             // Проверяем, был ли выбран элемент
             if (listBox.SelectedItem is ListBoxItem selectedListBoxItem)
@@ -148,11 +129,30 @@ namespace SMC_GUI
                     Grid.Children.Remove(Icons);
                 }
 
-                DrawingBrush drawingBrush = new DrawingBrush();
-                drawingBrush.Drawing = CreateDrawing(Brushes.Green);
+                Item itemFind = items.FirstOrDefault(i => i.itemId.Equals(selectedListBoxItem.Tag.ToString(),
+                    StringComparison.OrdinalIgnoreCase));
+                DrawingBrush drawingBrush = new DrawingBrush(); // Создаем DrawingBrush один раз
+                if (itemFind != null) // Проверяем, найден ли элемент
+                {
+                    // Проверяем ингредиенты
+                    if (itemFind.ingredientList.Count > 0)
+                    {
+                        drawingBrush.Drawing = CreateDrawing(Brushes.Green);
+                    }
+                    else
+                    {
+                        drawingBrush.Drawing = CreateDrawing(Brushes.Yellow);
+                    }
+                }
+                else
+                {
+                    // Если элемент не найден, задаем другой цвет или оставляем по умолчанию
+                    drawingBrush.Drawing = CreateDrawing(Brushes.White); // Пример обработки, если элемент не найден
+                }
 
                 // Присваиваем DrawingBrush выбранному элементу
                 selectedListBoxItem.Background = drawingBrush;
+
 
                 // Получение тега из выбранного элемента
                 var tag = selectedListBoxItem.Tag.ToString();
@@ -176,12 +176,7 @@ namespace SMC_GUI
 
                     MessageBox.Show("LogError", "Error",
                         MessageBoxButton.OK, MessageBoxImage.Error);
-                    Process.Start(new ProcessStartInfo
-                    {
-                        FileName = "explorer",
-                        Arguments = Path.GetDirectoryName(LogFilePath),
-                        UseShellExecute = true
-                    });
+                    openFileDialog.OpenLogDirectory(Config.LogFilePath);
                     Environment.Exit(1);
                 }
 
@@ -194,13 +189,15 @@ namespace SMC_GUI
                     // Создаем новый элемент
                     Item item = new Item
                     {
+                        TypeDropdawun = GetDropButton(),
                         comment = selectedListBoxItem.Content.ToString(),
                         itemId = selectedListBoxItem.Tag.ToString(),
                         ingredientList = new List<Ingredient>(),
                         craftTime = 1,
                         quantity = 1
                     };
-                    string info = $"ItemId: {selectedListBoxItem.Tag}\n" +
+                    string info = $"Type: {GetDropButton()}\n" + 
+                                  $"ItemId: {selectedListBoxItem.Tag}\n" +
                                   $"Quantity: {1}\n" +
                                   $"CraftTime: {1}\n" +
                                   $"IngridientList:\n";
@@ -222,7 +219,8 @@ namespace SMC_GUI
                         ingredientsString += ViewTemplate(item.quantity.ToString(), item.itemId, item.name);
                     }
                      
-                    string info = $"ItemId: {existingItem.itemId}\n" +
+                    string info = $"Type: {existingItem.TypeDropdawun}\n" +
+                                  $"ItemId: {existingItem.itemId}\n" +
                                   $"Quantity: {existingItem.quantity}\n" +
                                   $"CraftTime: {existingItem.craftTime}\n"+
                                   $"{ingredientsString}";
@@ -235,13 +233,15 @@ namespace SMC_GUI
                     // Создаем новый элемент
                     Item item = new Item
                     {
+                        TypeDropdawun = GetDropButton(),
                         comment = selectedListBoxItem.Content.ToString(),
                         itemId = selectedListBoxItem.Tag.ToString(),
                         ingredientList = new List<Ingredient>(),
                         craftTime = 1,
                         quantity = 1
                     };
-                    string info = $"ItemId: {selectedListBoxItem.Tag}\n" +
+                    string info = $"Type: {GetDropButton()}\n" +
+                                  $"ItemId: {selectedListBoxItem.Tag}\n" +
                                   $"Quantity: {1}\n" +
                                   $"CraftTime: {1}\n" +
                                   $"IngridientList:\n";
@@ -281,12 +281,7 @@ namespace SMC_GUI
 
                 MessageBox.Show("LogError", "Error",
                     MessageBoxButton.OK, MessageBoxImage.Error);
-                Process.Start(new ProcessStartInfo
-                {
-                    FileName = "explorer",
-                    Arguments = Path.GetDirectoryName(LogFilePath),
-                    UseShellExecute = true
-                });
+                openFileDialog.OpenLogDirectory(Config.LogFilePath);
                 Environment.Exit(1);
             }
 
@@ -298,12 +293,7 @@ namespace SMC_GUI
 
                 MessageBox.Show("LogError", "Error",
                     MessageBoxButton.OK, MessageBoxImage.Error);
-                Process.Start(new ProcessStartInfo
-                {
-                    FileName = "explorer",
-                    Arguments = Path.GetDirectoryName(LogFilePath),
-                    UseShellExecute = true
-                });
+                openFileDialog.OpenLogDirectory(Config.LogFilePath);
                 Environment.Exit(1);
             }
 
@@ -311,7 +301,8 @@ namespace SMC_GUI
             Reader reader = new Reader();
 
             // Чтение JSON и преобразование в список рецептов
-            List<Recipe> recipes = reader.ReadJsonToList<Recipe>(filepath, loger, fileStream, "ERROR");
+            List<Recipe> recipes = reader.ReadJsonToList<Recipe>(filepath,
+                loger, fileStream, "ERROR",openFileDialog ,Config.LogFilePath);
 
             // Создание ScrollViewer
             ScrollViewer scrollViewer = new ScrollViewer
@@ -396,18 +387,14 @@ namespace SMC_GUI
 
                 MessageBox.Show("LogError", "Error",
                     MessageBoxButton.OK, MessageBoxImage.Error);
-                Process.Start(new ProcessStartInfo
-                {
-                    FileName = "explorer",
-                    Arguments = Path.GetDirectoryName(LogFilePath),
-                    UseShellExecute = true
-                });
+                openFileDialog.OpenLogDirectory(Config.LogFilePath);
                 Environment.Exit(1);
             }
 
             foreach (var fileName in filesToSearch)
             {
-                string[] files = Directory.GetFiles(filepath,fileName, SearchOption.AllDirectories);
+                string[] files = Directory.GetFiles(filepath,fileName,
+                    SearchOption.AllDirectories);
 
                 if (files.Length > 0)
                 {
@@ -433,7 +420,8 @@ namespace SMC_GUI
                 switch (Path.GetFileName(file))
                 {
                     case "description.json":
-                        Description = reader.ReadJson<Description>(file, loger, fileStream, "ERROR");
+                        Description = reader.ReadJson<Description>(file, loger,
+                            fileStream, "ERROR", openFileDialog, Config.LogFilePath);
                         if (string.IsNullOrEmpty(Description?.name))
                         {
                             Description.name = "Error";
@@ -452,15 +440,22 @@ namespace SMC_GUI
                         }
                         break;
                     case "IconMap.xml":
-                         XMLAtlas = reader.SerializerXML<MyGUI>(file, loger, fileStream, "ERROR");
+                         XMLAtlas = reader.SerializerXML<MyGUI>(file, loger,
+                             fileStream, "ERROR", openFileDialog,Config.LogFilePath);
                         foreach (var index in XMLAtlas.Resource.Group.Indices)
                         {
-                            XMLAtlasDict.Add(index.Name,index.Frame.Point);
+                            if (!XMLAtlasDict.ContainsKey(index.Name))
+                            {
+                                XMLAtlasDict.Add(index.Name, index.Frame.Point);
+                            }
+                            
                         }
                         break;
                     case "inventoryDescriptions.json":
-                        InventoryDescriptions.description = reader.ReadJsonAnNormal<string,string>(file,
-                                                                            loger, fileStream, "ERROR");
+                        InventoryDescriptions.description =
+                            reader.ReadJsonAnNormal<string,string>(
+                                file, loger, fileStream, "ERROR",
+                                openFileDialog, Config.LogFilePath);
                         break;
                 }
             }
@@ -603,7 +598,6 @@ namespace SMC_GUI
                             
                             // Добавляем ингредиент в список элемента
                             item.ingredientList.Add(ingredient);
-                            item.TypeDropdawun = GetDropButton();
 
                             // Создаем новый параграф для добавления информации об ингредиенте
                             Paragraph newParagraph = new Paragraph();
@@ -712,7 +706,7 @@ namespace SMC_GUI
         public Config ReadConfig(string filepath)
         {
             Reader reader = new Reader();
-            Config config = reader.ReadJson<Config>(filepath, loger, fileStream, "ERROR");
+            Config config = reader.ReadJson<Config>(filepath);
             return config;
         }
 
@@ -721,42 +715,74 @@ namespace SMC_GUI
             Reader reader = new Reader();
             string[] files = Directory.GetFiles(filepath);
 
+            // Очистите списки перед заполнением, чтобы избежать дублирования данных
+            List<Item> items = new List<Item>();
+            List<Item> itemsHideout = new List<Item>();
+
             foreach (var file in files)
             {
                 try
                 {
-                    // Чтение JSON из каждого файла
-                    List<Item> fileItems = reader.ReadJson<List<Item>>(file, loger, fileStream, "ERROR");
-                    if (fileItems != null && fileItems.Count > 0)
+                    string name = Path.GetFileName(file);
+                    int startIndex = name.IndexOf('_') + 1; // +1 чтобы пропустить "_" символ
+                    int endIndex = name.IndexOf('_', startIndex); // Найдем следующий символ "_"
+
+                    if (startIndex > 0 && endIndex > startIndex)
                     {
-                        items.AddRange(fileItems);
+                        string result = name.Substring(startIndex, endIndex - startIndex);
+
+                        // Проверяем результат
+                        if (result == "craftbot")
+                        {
+                            var readItems = reader.ReadJson<List<Item>>(
+                                file, loger, fileStream, "ERROR",
+                                openFileDialog, Config.LogFilePath);
+                            if (readItems != null && readItems.Count > 0)
+                            {
+                                items.AddRange(readItems);
+                            }
+                        }
+
+                        if (result == "hideout")
+                        {
+                            var readItemsHideout = reader.ReadJson<List<Item>>(
+                                file, loger, fileStream, "ERROR",
+                                openFileDialog, Config.LogFilePath);
+                            if (readItemsHideout != null && readItemsHideout.Count > 0)
+                            {
+                                itemsHideout.AddRange(readItemsHideout);
+                            }
+                        }
                     }
-                    
                 }
                 catch (Exception ex)
                 {
-                    loger.Log(fileStream, $"Ошибка при обработке файла {file}: {ex.Message}"
-                                                                                , "ERROR");
+                    loger.Log(fileStream, $"Ошибка при обработке файла {file}: {ex.Message}", "ERROR");
+                    openFileDialog.OpenLogDirectory(Config.LogFilePath);
+                    Environment.Exit(1);
                 }
             }
 
-            RestructList();
-
+            // Сохраняем данные в файлы
+            Save("Output/craftbot.json", items, "Output/craftbot.json");
+            Save("Output/hideout.json", itemsHideout, "Output/hideout.json");
         }
 
 
-        public void Save( string output, List<Item> data)
+
+        public void Save( string output, List<Item> data, string filepaths)
         {
-            RestructList();
+            string json = JsonConvert.SerializeObject(data, Formatting.Indented);
+
+            string filePath = output;
+
             try
             {
-                
-                string json = JsonConvert.SerializeObject(data, Formatting.Indented);
-
-                string filePath = output;
                 File.WriteAllText(filePath, json);
                 MessageBox.Show($"Данные успешно сохранены в файл: {filePath}");
-                
+                openFileDialog.OpenLogDirectory(Config.LogFilePath);
+                Environment.Exit(1);
+
             }
             catch (Exception ex)
             {
@@ -766,12 +792,7 @@ namespace SMC_GUI
 
                 MessageBox.Show("LogError", "Error",
                     MessageBoxButton.OK, MessageBoxImage.Error);
-                Process.Start(new ProcessStartInfo
-                {
-                    FileName = "explorer",
-                    Arguments = Path.GetDirectoryName(LogFilePath),
-                    UseShellExecute = true
-                });
+                openFileDialog.OpenLogDirectory(Config.LogFilePath);
                 Environment.Exit(1);
             }
 
@@ -780,6 +801,9 @@ namespace SMC_GUI
 
         public void RestructList()
         {
+            // Создаем временный список для хранения элементов для удаления
+            List<Item> itemsToRemove = new List<Item>();
+
             foreach (var item in items)
             {
                 switch (item.TypeDropdawun)
@@ -788,14 +812,29 @@ namespace SMC_GUI
                         break;
                     case "Hideout":
                         itemsHideout.Add(item);
-                        items.Remove(item);
+                        itemsToRemove.Add(item); // Добавляем элемент в список для удаления
                         break;
                 }
             }
 
-            Save(Config.OutputDirectory,items);
-            Save(Config.OutputFilePath,itemsHideout);
+            // Удаляем элементы после завершения итерации
+            foreach (var item in itemsToRemove)
+            {
+                items.Remove(item);
+            }
+
+            // Показ уведомления с количеством элементов
+            MessageBox.Show($"Craftbot: {items.Count}\nHideout: {itemsHideout.Count}");
+
+            string filenamecraftbot = Description.name.Replace(" ","") + ".json";
+            string pathcraftbot =  Config.OutputDirectory + filenamecraftbot;
+
+            // Сохраняем оба списка
+            Save(pathcraftbot, items, pathcraftbot);
+            Save(Config.OutputFilePath+filenamecraftbot, itemsHideout, Config.OutputFilePath + filenamecraftbot);
         }
+
+        
     }
 
 
@@ -818,6 +857,7 @@ namespace SMC_GUI
 
     public class Ingredient
     {
+        public Ingredient() { }
         public int quantity { get; set; }
         public string itemId { get; set; }
         [JsonIgnore]
@@ -949,15 +989,9 @@ namespace SMC_GUI
         public string InputFilePath { get; set; }
         public string LogFilePath { get; set; }
         public string SubDirectoryPath { get; set; }
-        public enum Language
-        {
-            Ru,
-            En
-        }
-        [JsonProperty("Language")]
-        public Language LanguageMod { get; set; }
         public string OutputDirectory { get; set; }
         public string InputDirectory { get; set; }
+        public TimeSpan TimeSpan { get; set; }
     }
 
 }
