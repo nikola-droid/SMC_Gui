@@ -23,8 +23,8 @@ namespace SMC_GUI
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {   
-        
+    {
+        private bool _isProgrammaticChange = false;
         public List<Item> items = new List<Item>();
         public List<Item> itemsHideout = new List<Item>();
         public Description Description = new Description
@@ -152,8 +152,10 @@ namespace SMC_GUI
         {
             foreach (var VARIABLE in CheckBoxes)
             {
-                VARIABLE.IsEnabled = true; 
+                VARIABLE.IsEnabled = true;
+                _isProgrammaticChange = true;
                 VARIABLE.IsChecked = false;
+                
             }
 
             foreach (var VARIABLE in TextBoxes)
@@ -184,7 +186,7 @@ namespace SMC_GUI
                 }
                 else
                 {
-                    // Если элемент не найден, задаем другой цвет или оставляем по умолчанию
+                    // Если элемент не найден, задаем другой цвет 
                     drawingBrush.Drawing = CreateDrawing(Brushes.Yellow); 
                 }
 
@@ -274,6 +276,7 @@ namespace SMC_GUI
                                       $"ItemId: {existingItem.itemId}\n" +
                                       $"Quantity: {existingItem.quantity}\n" +
                                       $"CraftTime: {existingItem.craftTime}\n" +
+                                      $"IngridientList:\n" +
                                       $"{ingredientsString}";
 
 
@@ -692,6 +695,7 @@ namespace SMC_GUI
                             
                             // Добавляем ингредиент в список элемента
                             item.ingredientList.Add(ingredient);
+                            _isProgrammaticChange = false;
                             Console.WriteLine(item.ingredientList.Count);
                             // Создаем новый параграф для добавления информации об ингредиенте
                             Paragraph newParagraph = new Paragraph();
@@ -714,12 +718,16 @@ namespace SMC_GUI
 
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
+            if (_isProgrammaticChange)
+            {
+                return;
+            }
             CheckBox checkBox = sender as CheckBox;
             Ingredient ingredientToRemove = checkBox.Tag as Ingredient;
 
             if (ingredientToRemove == null)
             {
-                Console.WriteLine("Ingredient from CheckBox is not valid.");
+                Console.WriteLine("Ingredient from CheckBox null.");
                 return;
             }
 
@@ -926,10 +934,17 @@ namespace SMC_GUI
             string filenamecraftbot = Description.name.Replace(" ","") + ".json";
             string pathcraftbot =  Config.OutputDirectory + filenamecraftbot;
 
-            // Сохраняем оба списка
-            Save(pathcraftbot, items, pathcraftbot);
-            Save(Config.OutputFilePath+filenamecraftbot, itemsHideout,
-                Config.OutputFilePath + filenamecraftbot);
+            if (items.Count > 0 )
+            {
+                Save(pathcraftbot, items, pathcraftbot);
+            }
+
+            if (itemsHideout.Count > 0)
+            {
+                Save(Config.OutputFilePath + filenamecraftbot, itemsHideout,
+                    Config.OutputFilePath + filenamecraftbot);
+            }
+
             openFileDialog.OpenLogDirectory(Path.GetDirectoryName(Config.OutputFilePath + filenamecraftbot));
             Environment.Exit(1);
         }
