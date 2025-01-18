@@ -46,3 +46,5 @@ C:\Users\NikolaEng\source\repos\SMC_GUI\SMC_GUI\bin\Debug\Microsoft.WindowsAPICo
 C:\Users\NikolaEng\source\repos\SMC_GUI\SMC_GUI\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
 C:\Users\NikolaEng\source\repos\SMC_GUI\SMC_GUI\bin\Debug\Microsoft.WindowsAPICodePack.xml
 C:\Users\NikolaEng\source\repos\SMC_GUI\SMC_GUI\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
+C:\Users\NikolaEng\source\repos\SMC_GUI\SMC_GUI\obj\Debug\Settings.g.cs
+C:\Users\NikolaEng\source\repos\SMC_GUI\SMC_GUI\obj\Debug\Settings.baml

@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("scainetlogo.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("checkboxik.png")]
 
 

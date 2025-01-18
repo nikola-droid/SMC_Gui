@@ -23,20 +23,20 @@
 
     <Grid Name="Grid">
 
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=50}" Margin="0,10,1071,10" SelectionChanged="ListBox_SelectionChanged" Name="ListBox" FontSize="14"/>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="768,778,0,0" VerticalAlignment="Top" Height="46" Width="70" Click="Button_ClickSave" FontSize="14"/>
-        <Image HorizontalAlignment="Left" Height="200" Margin="703,68,0,0" VerticalAlignment="Top" Width="200" Name="Icon" Source="/Icon-view.1png.png" Stretch="Fill" RenderTransformOrigin="1,1"/>
-        <RichTextBox Margin="470,252,399,102" TextChanged="RichTextBox_TextChanged" Name="RichTextBox" FontSize="14">
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=50}" Margin="0,10,1188,10" SelectionChanged="ListBox_SelectionChanged" Name="ListBox" FontSize="14"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="666,784,0,0" VerticalAlignment="Top" Height="46" Width="70" Click="Button_ClickSave" FontSize="14" d:LayoutOverrides="HorizontalAlignment"/>
+        <Image HorizontalAlignment="Left" Height="200" Margin="601,74,0,0" VerticalAlignment="Top" Width="200" Name="Icon" Source="/Icon-view.1png.png" Stretch="Fill" RenderTransformOrigin="1,1"/>
+        <RichTextBox Margin="368,258,586,96" TextChanged="RichTextBox_TextChanged" Name="RichTextBox" FontSize="14" IsEnabled="False">
             <FlowDocument>
                 <Paragraph>
                     <Run Text="RichTextBox"/>
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
-        <TextBox HorizontalAlignment="Left" Margin="480,16,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="644" Height="52" Name="ModName" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FFCE8314" Foreground="#FFCE8314" FontSize="24" FontWeight="Bold"/>
-        <Canvas Margin="1142,0,0,0" Name="CanvasRecipe"/>
+        <TextBox HorizontalAlignment="Left" Margin="378,22,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="572" Height="52" Name="ModName" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FFCE8314" Foreground="#FFCE8314" FontSize="24" FontWeight="Bold"/>
+        <Canvas Margin="955,0,0,0" Name="CanvasRecipe"/>
         <Button x:Name="MyButton" 
-                Content="Выберете режим" Margin="480,73,911,719" Click="MyButton_Click" >
+                Content="Выберете режим" Margin="378,79,1013,713" Click="MyButton_Click" >
             <Button.ContextMenu>
                 <ContextMenu Name="ContextMenu">
                     <MenuItem Header="Craftbot" Click="MenuItem_Click" />
@@ -44,7 +44,7 @@
                 </ContextMenu>
             </Button.ContextMenu>
         </Button>
-        <Button Content="Apply" Margin="480,142,911,652" FontSize="20" Click="Button_Click"/>
+        <Button Content="Apply" Margin="378,148,1013,646" FontSize="20" Click="Button_Click"/>
 
     </Grid>
 </Window>

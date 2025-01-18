@@ -1,0 +1,35 @@
+[
+  {
+    "comment": "Corner",
+    "itemId": "2eba2be5-1acb-4abd-8e98-68c59683ffdc",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 110,
+        "itemId": "a6c6ce30-dd47-4587-b475-085d55c6a3b4",
+        "comment": "Бетон 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Inverted Corner",
+    "itemId": "24769e56-3671-4349-8f26-c158720da201",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 2,
+        "itemId": "a6c6ce30-dd47-4587-b475-085d55c6a3b4",
+        "comment": "Бетон 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "[FLX] Small Terrain Wheel",
+    "itemId": "9ece81a2-8041-499b-8721-c79d18cb88ba",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": []
+  }
+]

@@ -1,0 +1,58 @@
+﻿<Window x:Class="SMC_GUI.Settings"
+        Background="#FF737373"
+        MaxHeight="864"
+        MaxWidth="1536"
+        WindowStartupLocation="CenterScreen" 
+        ResizeMode="NoResize" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SMC_GUI"
+        mc:Ignorable="d"
+        Title="Settings" Height="864" Width="1536">
+    <Window.Resources>
+        <!-- Создание стиля для кнопки -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="BorderBrush" Value="DarkGray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+
+    <Grid>
+        <Label Content="Mode" Margin="29,30,1344,707" FontSize="24"/>
+        <TextBox Margin="25,104,1264,662" TextWrapping="Wrap" Text="None" Name="TextBox" FontSize="24" TextChanged="TextBox_TextChanged"/>
+        <Button Content="" Margin="291,104,1166,662" Name="MyButton" Click="MyButton_Click" BorderBrush="Black" Focusable="False">
+            <Button.Background>
+                <ImageBrush ImageSource="/CheckBoxik.png"/>
+            </Button.Background>
+            <Button.ContextMenu>
+                <ContextMenu Name="ContextMenu">
+                    <MenuItem Header="Auto" Click="MenuItem_Click" />
+                    <MenuItem Header="Editor" Click="MenuItem_Click"/>
+                    <MenuItem Header="Compare" Click="MenuItem_Click"/>
+                    <MenuItem Header="EditCraft" Click="MenuItem_Click"/>
+                </ContextMenu>
+            </Button.ContextMenu>
+        </Button>
+        <Button Content="APPLAY" Margin="1326,784,10,10" Click="Button_Click_2" Width="200"/>
+        <TextBox Margin="25,378,1264,411" TextWrapping="Wrap" Text="None" x:Name="TextBox_Time" FontSize="24" TextChanged="TextBox_TextChanged" d:LayoutOverrides="VerticalAlignment"/>
+        <Label Content="Time Destroy Log" Margin="25,290,1233,475" FontSize="24"/>
+
+    </Grid>
+</Window>

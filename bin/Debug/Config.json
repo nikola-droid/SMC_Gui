@@ -1,6 +1,6 @@
 {
 	"Comment":"Это конфигурационный файл для приложения", 
-	"Mode":"Editor", // Auto /Editor / Compare / EditCraft установить в зависимости от желаеого режима работы
+	"Mode":"Auto", // Auto /Editor / Compare / EditCraft установить в зависимости от желаеого режима работы
 	"OutputFilePath":"Data/(_hideout_)", // путь к выходной папке
 	"UsInputFilePath": true, // надо ли использовать ваш путь для поиска папок с модами
 	"InputFilePath": "C:/Users/NikolaEng/Desktop/ModsName",

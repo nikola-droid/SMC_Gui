@@ -13,6 +13,7 @@ using Path = System.IO.Path;
 using EngLibrary;
 using System.Xml.Serialization;
 using Formatting = Newtonsoft.Json.Formatting;
+using System.Threading;
 
 
 
@@ -57,12 +58,19 @@ namespace SMC_GUI
         {
             loger = new Loger();
             openFileDialog = new EngLibrary.OpenFileDialog();
-            Config = ReadConfig(filepath: "Config.json");
-            LogFileName = Path.Combine(loger.GenerateLogFileName()); 
+
+            Settings secondWindow = new Settings();
+            secondWindow.ConfigUpdated += SecondWindow_ConfigUpdated;
+            bool? result = secondWindow.ShowDialog();
+
+           
+            LogFileName = Path.Combine(loger.GenerateLogFileName());
             LogFilePath = Path.Combine(Config.LogFilePath, LogFileName);
-            loger.DestroyLogFile(Config.LogFilePath,Config.TimeSpan, loger,fileStream,
-                "ERROR",openFileDialog);
+            loger.DestroyLogFile(Config.LogFilePath, Config.TimeSpan, loger, fileStream,
+                "ERROR", openFileDialog);
             fileStream = loger.CreateLogFile(Path.Combine(Config.LogFilePath, LogFileName));
+
+
 
             switch (Config.OperationMode)
             {
@@ -81,7 +89,7 @@ namespace SMC_GUI
                             mode: "MessageBox", loger, fileStream,
                             Config.LogFilePath, "ERROR"));
                     }
-                    
+
                     break;
                 case Config.Mode.Compare:
                     try
@@ -128,6 +136,13 @@ namespace SMC_GUI
            
         }
 
+        private void SecondWindow_ConfigUpdated(Config config)
+        {
+            // Обработка полученного объекта Config
+            //MessageBox.Show($"Received Setting1: {config.OperationMode}");
+            //MessageBox.Show($"Received Setting1: {config.TimeSpan}");
+            Config = config;
+        }
         private string GetDropButton()
         {
             return MyButton.Content.ToString();
@@ -240,29 +255,7 @@ namespace SMC_GUI
                     RichTextBox.Document.Blocks.Clear();
 
 
-                    // Проверяем, пуст ли список items
-                    //if (items.Count == 0)
-                    //{
-                    //    // Создаем новый элемент
-                    //    Item item = new Item
-                    //    {
-                    //        TypeDropdawun = " ",
-                    //        comment = selectedListBoxItem.Content.ToString(),
-                    //        itemId = selectedListBoxItem.Tag.ToString(),
-                    //        ingredientList = new List<Ingredient>(),
-                    //        craftTime = 1,
-                    //        quantity = 1
-                    //    };
-                    //    string info = $"Type: Non\n" +
-                    //                  $"ItemId: {selectedListBoxItem.Tag}\n" +
-                    //                  $"Quantity: {1}\n" +
-                    //                  $"CraftTime: {1}\n" +
-                    //                  $"IngridientList:\n";
-
-                    //    AddParagraphToRichTextBox(info, item);
-                    //    items.Add(item);
-                    //    return;
-                    //}
+                    
 
                     // Поиск существующего элемента
 
@@ -291,7 +284,7 @@ namespace SMC_GUI
                         // Создаем новый элемент
                         Item item = new Item
                         {
-                            TypeDropdawun = " ",
+                            TypeDropdawun = "Non",
                             comment = selectedListBoxItem.Content.ToString(),
                             itemId = selectedListBoxItem.Tag.ToString(),
                             ingredientList = new List<Ingredient>(),
@@ -368,7 +361,7 @@ namespace SMC_GUI
             {
                 VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
                 HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled,
-                Width = 400, // Пример ширины
+                Width = 580, // Пример ширины
                 Height = 864 // Пример высоты
             };
 
@@ -582,7 +575,7 @@ namespace SMC_GUI
                 Height = 140,
                 HorizontalAlignment = HorizontalAlignment.Left,
                 VerticalAlignment = VerticalAlignment.Top,
-                Margin = new Thickness(729, 90, 0, 0)
+                Margin = new Thickness(630, 100, 0, 0)
             };
             Grid.Children.Add(Icons);
             return Icons;
@@ -775,8 +768,6 @@ namespace SMC_GUI
             }
         }
 
-
-
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             MenuItem selectedMenuItem = sender as MenuItem;
@@ -815,12 +806,7 @@ namespace SMC_GUI
             return template;
         }
         
-        public Config ReadConfig(string filepath)
-        {
-            Reader reader = new Reader();
-            Config config = reader.ReadJson<Config>(filepath);
-            return config;
-        }
+        
 
         public void CompareJson(string filepath)
         {
@@ -878,6 +864,9 @@ namespace SMC_GUI
             // Сохраняем данные в файлы
             Save("Output/craftbot.json", items, "Output/craftbot.json");
             Save("Output/hideout.json", itemsHideout, "Output/hideout.json");
+            
+            openFileDialog.OpenLogDirectory(Path.GetDirectoryName("Output / hideout.json"));
+            Environment.Exit(1);
         }
 
         public void Save( string output, List<Item> data, string filepaths)
@@ -890,9 +879,7 @@ namespace SMC_GUI
             {
                 File.WriteAllText(filePath, json);
                 MessageBox.Show($"Данные успешно сохранены в файл: {filePath}");
-                openFileDialog.OpenLogDirectory(Path.GetDirectoryName(filePath));
                 
-
             }
             catch (Exception ex)
             {
@@ -943,6 +930,8 @@ namespace SMC_GUI
             Save(pathcraftbot, items, pathcraftbot);
             Save(Config.OutputFilePath+filenamecraftbot, itemsHideout,
                 Config.OutputFilePath + filenamecraftbot);
+            openFileDialog.OpenLogDirectory(Path.GetDirectoryName(Config.OutputFilePath + filenamecraftbot));
+            Environment.Exit(1);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -993,8 +982,6 @@ namespace SMC_GUI
                 AddParagraphToRichTextBox(info, item);
             }
         }
-
-
     }
 
 
