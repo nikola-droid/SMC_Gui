@@ -309,6 +309,7 @@ namespace SMC_GUI
 
         private void AddParagraphToRichTextBox(string info, Item item)
         {
+
             Paragraph paragraph = new Paragraph();
             TaggedRun taggedRun = new TaggedRun(info, item, paragraph);
             paragraph.Inlines.Add(taggedRun);
@@ -813,8 +814,6 @@ namespace SMC_GUI
 
             return template;
         }
-        
-        
 
         public void CompareJson(string filepath)
         {
@@ -953,6 +952,7 @@ namespace SMC_GUI
         {
             string info = "";
             Item item = null; // Инициализируем item как null
+            string ingredientsString = "";
             CheckBox checkBox = sender as CheckBox;
 
             // Список для хранения Paragraph, которые необходимо удалить
@@ -968,6 +968,13 @@ namespace SMC_GUI
                         {
                             item = taggedRun.Tag as Item; // Предполагается, что Tag возвращает Item
 
+
+                            foreach (var ingredient in item.ingredientList)
+                            {
+                                ingredientsString += ViewTemplate(ingredient.quantity.ToString(),
+                                    ingredient.itemId, ingredient.comment);
+                            }
+
                             if (item != null) // Проверяем, что item не null
                             {
                                 item.TypeDropdawun = GetDropButton(); // Обновляем TypeDropdown
@@ -978,24 +985,30 @@ namespace SMC_GUI
                                         $"ItemId: {item.itemId}\n" + // Измените это на ваш идентификатор элемента
                                         $"Quantity: {item.quantity}\n" +
                                         $"CraftTime: {item.craftTime}\n" +
-                                        $"IngredientList: {string.Join(", ", item.ingredientList)}\n"; // Предполагаем, что это перечисление
+                                        $"IngredientList:\n"+
+                                        $"{ingredientsString}"; // Предполагаем, что это перечисление
                             }
+
+                            
                         }
                     }
                 }
             }
+            
 
             // Удаляем все собранные Paragraph после завершения итерации
             foreach (var paragraph in paragraphsToRemove)
             {
-                RichTextBox.Document.Blocks.Remove(paragraph);
+                RichTextBox.Document.Blocks.Clear();
             }
 
             // Добавляем новую информацию в RichTextBox
             if (item != null) // Проверяем, что item не null для добавления информации
             {
                 AddParagraphToRichTextBox(info, item);
+                
             }
+            
         }
     }
 
