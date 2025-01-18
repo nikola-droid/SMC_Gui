@@ -1,0 +1,71 @@
+[
+  {
+    "comment": "[FLX] Slope 4x2",
+    "itemId": "d6480d67-9507-4ab1-9e32-04d7d61be2af",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 4,
+        "itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+        "comment": "Набор компонентов"
+      },
+      {
+        "quantity": 2,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "[FLX] Slope 4x3",
+    "itemId": "39d31753-4f87-4af8-81a7-85669c620cbe",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+	{
+        "quantity": 4,
+        "itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+        "comment": "Набор компонентов"
+      },
+      {
+        "quantity": 3,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }]
+  },
+  {
+    "comment": "[FLX] Slope 4x4",
+    "itemId": "b55a2e21-70b5-4ebb-bafc-55691520cf07",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+	{
+        "quantity": 4,
+        "itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+        "comment": "Набор компонентов"
+      },
+      {
+        "quantity": 4,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }]
+  },
+  {
+    "comment": "[FLX] Slope 4x5",
+    "itemId": "793d282f-b121-4718-af8c-2f33e5f557fb",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+	{
+        "quantity": 4,
+        "itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+        "comment": "Набор компонентов"
+      },
+      {
+        "quantity": 5,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }]
+  }
+]

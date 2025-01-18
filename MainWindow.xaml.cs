@@ -256,9 +256,6 @@ namespace SMC_GUI
 
                     RichTextBox.Document.Blocks.Clear();
 
-
-                    
-
                     // Поиск существующего элемента
 
                     Item existingItem = items.FirstOrDefault(variable =>
@@ -360,6 +357,8 @@ namespace SMC_GUI
             List<Recipe> recipes = reader.ReadJsonToList<Recipe>(filepath,
                 loger, fileStream, "ERROR",openFileDialog ,Config.LogFilePath);
 
+            recipes.Sort((x, y) => string.Compare(x.title, y.title));
+
             // Создание ScrollViewer
             ScrollViewer scrollViewer = new ScrollViewer
             {
@@ -421,8 +420,6 @@ namespace SMC_GUI
                 // Добавление контейнера со CheckBox и TextBox на основной StackPanel
                 stackPanel.Children.Add(itemContainer);
             }
-
-
 
             // Добавление StackPanel в ScrollViewer
             scrollViewer.Content = stackPanel;

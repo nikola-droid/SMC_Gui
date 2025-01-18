@@ -289,5 +289,80 @@
 	},
 	
 	
+	{
+		"itemId": "aa4c9c5e-7fc6-4c27-967f-c550e551c872",
+		"title": "Банан"
+	},
+	{
+		"itemId": "6a43fff2-8c6d-4460-9f44-e5483b5267dd",
+		"title": "Черника"
+	},
+	{
+		"itemId": "f5098301-1693-457b-8efc-83b3504105ac",
+		"title": "Апельсин"
+	},
+	{
+		"itemId": "4ec64cda-1a5b-4465-88b4-5ea452c4a556",
+		"title": "Ананас"
+	},
+	{
+		"itemId": "47ece75a-bfca-4e8a-b618-4f609fcea0da",
+		"title": "Морковка"
+	},
+	{
+		"itemId": "4ce00048-f735-4fab-b978-5f405e60f48f",
+		"title": "Свекла"
+	},
+	{
+		"itemId": "6d92d8e7-25e9-4698-b83d-a64dc97978c8",
+		"title": "Помидор"
+	},
+	{
+		"itemId": "b5cdd503-fe1c-482b-86ab-6a5d2cc4fc8f",
+		"title": "Брокколи"
+	},
+	{
+		"itemId": "bfcfac34-db0f-42d6-bd0c-74a7a5c95e82",
+		"title": "Картофель"
+	},
+	
+	
+	{
+		"itemId": "0bc74539-df8a-47c7-aad8-d55d809a01e4",
+		"title": "Ящик бананов"
+	},
+	{
+		"itemId": "e77d9577-589a-446b-96c1-f6d0d7495489",
+		"title": "Ящик черники"
+	},
+	{
+		"itemId": "c10a77d5-3357-4cb4-8113-a2cbe69c7ff2",
+		"title": "Ящик апельсинов"
+	},
+	{
+		"itemId": "bc69cb3b-7e0c-4c36-805d-f8d89fcfced3",
+		"title": "Ящик ананасов"
+	},
+	{
+		"itemId": "9cd8288c-5a19-479f-af47-9eb55230ade2",
+		"title": "Ящик морковки"
+	},
+	{
+		"itemId": "628fd350-577d-413f-82a8-7f08a83de3d8",
+		"title": "Ящик свеклы"
+	},
+	{
+		"itemId": "1dcd74ca-39ba-4b00-a36a-3381b25055f4",
+		"title": "Ящик помидоров"
+	},
+	{
+		"itemId": "99477093-e819-4199-b62a-fda6143aae89",
+		"title": "Ящик брокколи"
+	},
+	{
+		"itemId": "8d601982-4608-4d5e-bb9e-e4041486f7c7",
+		"title": "Запертый фермер"
+	}
+	
 	
 ]
