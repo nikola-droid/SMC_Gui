@@ -14,6 +14,11 @@ using EngLibrary;
 using System.Xml.Serialization;
 using Formatting = Newtonsoft.Json.Formatting;
 using System.Threading;
+using System.Runtime.InteropServices;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+using System.Windows;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
 
@@ -54,6 +59,8 @@ namespace SMC_GUI
 
         public ListBox listBox;
 
+        
+
         public MainWindow()
         {
             loger = new Loger();
@@ -62,7 +69,14 @@ namespace SMC_GUI
             Settings secondWindow = new Settings();
             secondWindow.ConfigUpdated += SecondWindow_ConfigUpdated;
             bool? result = secondWindow.ShowDialog();
-
+            if (result == true)
+            {
+                Console.WriteLine($"Добро пожаловать в SMC_GUI_{Config.OperationMode}");
+            }
+            else
+            {
+                this.Close();
+            }
            
             LogFileName = Path.Combine(loger.GenerateLogFileName());
             LogFilePath = Path.Combine(Config.LogFilePath, LogFileName);
@@ -70,7 +84,7 @@ namespace SMC_GUI
                 "ERROR", openFileDialog);
             fileStream = loger.CreateLogFile(Path.Combine(Config.LogFilePath, LogFileName));
 
-
+            Console.WriteLine("Все настройки применины");
 
             switch (Config.OperationMode)
             {
@@ -133,7 +147,8 @@ namespace SMC_GUI
             DisplaySystemParameters();
             ResizeWindow();
             ModsName();
-           
+            Console.WriteLine("вызов чтения json");
+
         }
 
         private void SecondWindow_ConfigUpdated(Config config)
@@ -142,6 +157,7 @@ namespace SMC_GUI
             //MessageBox.Show($"Received Setting1: {config.OperationMode}");
             //MessageBox.Show($"Received Setting1: {config.TimeSpan}");
             Config = config;
+            Console.WriteLine("Конфиг прочитан");
         }
         private string GetDropButton()
         {
@@ -278,20 +294,23 @@ namespace SMC_GUI
 
 
                         AddParagraphToRichTextBox(info, existingItem);
+                        Console.WriteLine($"Объект уже инициализирован:" +
+                                          $"Тип объекта {existingItem.TypeDropdawun}" +
+                                          $"Количество ингридиентов: {existingItem.ingredientList.Count}");
                     }
                     else
                     {
                         // Создаем новый элемент
                         Item item = new Item
                         {
-                            TypeDropdawun = "Non",
+                            TypeDropdawun = "None",
                             comment = selectedListBoxItem.Content.ToString(),
                             itemId = selectedListBoxItem.Tag.ToString(),
                             ingredientList = new List<Ingredient>(),
                             craftTime = 1,
                             quantity = 1
                         };
-                        string info = $"Type: Non\n" +
+                        string info = $"Type: None\n" +
                                       $"ItemId: {selectedListBoxItem.Tag}\n" +
                                       $"Quantity: {1}\n" +
                                       $"CraftTime: {1}\n" +
@@ -299,6 +318,8 @@ namespace SMC_GUI
 
                         AddParagraphToRichTextBox(info, item);
                         items.Add(item);
+                        Console.WriteLine($"Инициализирован новый предмет: {item.comment}" +
+                                          $"Тип объекта {item.TypeDropdawun}");
                     }
                 }
             }
@@ -653,13 +674,15 @@ namespace SMC_GUI
             if (m == i)
             {
                 text += "Все файлы найдены";
-                MessageBox.Show(text, "Status", MessageBoxButton.OK, MessageBoxImage.Information);
+                //MessageBox.Show(text, "Status", MessageBoxButton.OK, MessageBoxImage.Information);
+                Console.WriteLine($"Все файлы найдены");
             }
             else
             {
                 text += Em;
                 MessageBox.Show(text, "Information",
                     MessageBoxButton.OK, MessageBoxImage.Information);
+                Console.WriteLine($"Возможны проблемы: {text}");
             }
 
             

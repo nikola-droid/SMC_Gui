@@ -32,10 +32,7 @@ namespace SMC_GUI
             TextBox_Time.Text = Config.TimeSpan.ToString();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         private void DisplaySystemParameters()
         {
@@ -57,10 +54,6 @@ namespace SMC_GUI
             return config;
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            
-        }
         
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -98,7 +91,7 @@ namespace SMC_GUI
             UpdateTimeSpan();
             // Вызываем событие и передаем объект Config
             ConfigUpdated?.Invoke(Config);
-
+            this.DialogResult = true;
             // Закрываем окно
             this.Close();
         }
