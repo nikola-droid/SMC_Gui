@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|c:\\users\\nikolaeng\\source\\repos\\smc_gui\\smc_gui\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|c:\\users\\nikolaeng\\source\\repos\\smc_gui\\smc_gui\\settings.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\settings.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|solutionrelative:settings.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|c:\\users\\nikolaeng\\source\\repos\\smc_gui\\smc_gui\\settings.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|solutionrelative:settings.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|c:\\users\\nikolaeng\\source\\repos\\smc_gui\\smc_gui\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|solutionrelative:app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|solutionrelative:app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\settings.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|solutionrelative:settings.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +34,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
@@ -42,11 +42,12 @@
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-01-16T14:37:12.788Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Settings.xaml",
               "DocumentMoniker": "C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\Settings.xaml",
               "RelativeDocumentMoniker": "Settings.xaml",
@@ -73,7 +74,7 @@
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAACsBAAAAAAAAAAAmwDcBAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAgwEsAAABeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-16T14:40:09.971Z",
               "EditorCaption": ""
@@ -86,7 +87,7 @@
               "RelativeDocumentMoniker": "Settings.xaml.cs",
               "ToolTip": "C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\Settings.xaml.cs",
               "RelativeToolTip": "Settings.xaml.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAASwF0AAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAACAAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-19T07:57:34.229Z",
               "EditorCaption": ""
@@ -99,7 +100,7 @@
               "RelativeDocumentMoniker": "App.xaml.cs",
               "ToolTip": "C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\App.xaml.cs",
               "RelativeToolTip": "App.xaml.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAADwvx4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-19T07:51:08.063Z",
               "EditorCaption": ""

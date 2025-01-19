@@ -1,17 +1,9 @@
 ﻿using EngLibrary;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace SMC_GUI
 {
@@ -26,8 +18,26 @@ namespace SMC_GUI
         {
             InitializeComponent();
             DisplaySystemParameters();
-            
-            Config = ReadConfig(filepath: "Config.json");
+
+            try
+            {
+                string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Config.json");
+
+                // Проверка наличия файла
+                if (!File.Exists(jsonFilePath))
+                {
+                    throw new FileNotFoundException($"Файл конфигурации не найден: {jsonFilePath}");
+                }
+
+                // Чтение конфигурации
+                Config = ReadConfig(filepath: jsonFilePath);
+            }
+            catch (Exception ex)
+            {
+                // Логируйте или обрабатывайте ошибку
+                Console.WriteLine($"Ошибка при чтении конфигурации: {ex.Message}");
+            }
+
             TextBox.Text = Config.OperationMode.ToString();
             TextBox_Time.Text = Config.TimeSpan.ToString();
         }

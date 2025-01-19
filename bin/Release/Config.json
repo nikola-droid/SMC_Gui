@@ -1,0 +1,12 @@
+{
+	"Comment":"Это конфигурационный файл для приложения", 
+	"Mode":"Auto", // Auto /Editor / Compare / EditCraft установить в зависимости от желаеого режима работы
+	"OutputFilePath":"Data/(_hideout_)", // путь к выходной папке
+	"UsInputFilePath": true, // надо ли использовать ваш путь для поиска папок с модами
+	"InputFilePath": "C:/Users/NikolaEng/Desktop/ModsName",
+	"LogFilePath":"Log", 
+	"SubDirectoryPath":"Axolot Games/Scrap Mechanic", // стандарный путь до папки с игрой
+	"OutputDirectory":"Data/(_craftbot_)",
+	"InputDirectory":"Data",
+	"TimeSpan":"00.00:30:00", // формат: дни.часы:минуты:секунды
+}

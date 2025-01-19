@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -13,12 +12,6 @@ using Path = System.IO.Path;
 using EngLibrary;
 using System.Xml.Serialization;
 using Formatting = Newtonsoft.Json.Formatting;
-using System.Threading;
-using System.Runtime.InteropServices;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
-using System.Windows;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
 
@@ -52,6 +45,7 @@ namespace SMC_GUI
         public Config Config;
         public EngLibrary.OpenFileDialog openFileDialog;
         public Loger loger;
+        public Folders folder;
         public FileStream fileStream;
 
         public string LogFileName;
@@ -64,6 +58,7 @@ namespace SMC_GUI
         public MainWindow()
         {
             loger = new Loger();
+            folder = new Folders();
             openFileDialog = new EngLibrary.OpenFileDialog();
 
             Settings secondWindow = new Settings();
@@ -77,7 +72,9 @@ namespace SMC_GUI
             {
                 this.Close();
             }
-           
+
+            bool? Folder = folder.CreateFolder(AppDomain.CurrentDomain.BaseDirectory + "Log");
+            
             LogFileName = Path.Combine(loger.GenerateLogFileName());
             LogFilePath = Path.Combine(Config.LogFilePath, LogFileName);
             loger.DestroyLogFile(Config.LogFilePath, Config.TimeSpan, loger, fileStream,
@@ -888,15 +885,16 @@ namespace SMC_GUI
                 }
             }
 
+            folder.CreateFolder(AppDomain.CurrentDomain.BaseDirectory + "Output");
             // Сохраняем данные в файлы
-            Save("Output/craftbot.json", items, "Output/craftbot.json");
-            Save("Output/hideout.json", itemsHideout, "Output/hideout.json");
-            
+            Save("Output/craftbot.json", items);
+            Save("Output/hideout.json", itemsHideout);
+
             openFileDialog.OpenLogDirectory(Path.GetDirectoryName("Output / hideout.json"));
             Environment.Exit(1);
         }
 
-        public void Save( string output, List<Item> data, string filepaths)
+        public void Save( string output, List<Item> data)
         {
             string json = JsonConvert.SerializeObject(data, Formatting.Indented);
 
@@ -950,21 +948,24 @@ namespace SMC_GUI
             // Показ уведомления с количеством элементов
             MessageBox.Show($"Craftbot: {items.Count}\nHideout: {itemsHideout.Count}");
 
+            folder.CreateFolder(AppDomain.CurrentDomain.BaseDirectory +
+                                Path.GetDirectoryName(Config.OutputDirectory));
+
             string filenamecraftbot = Description.name.Replace(" ","") + ".json";
             string pathcraftbot =  Config.OutputDirectory + filenamecraftbot;
 
             if (items.Count > 0 )
             {
-                Save(pathcraftbot, items, pathcraftbot);
+                Save(pathcraftbot, items);
             }
 
             if (itemsHideout.Count > 0)
             {
-                Save(Config.OutputFilePath + filenamecraftbot, itemsHideout,
-                    Config.OutputFilePath + filenamecraftbot);
+                Save(Config.OutputFilePath + filenamecraftbot, itemsHideout);
             }
 
-            openFileDialog.OpenLogDirectory(Path.GetDirectoryName(Config.OutputFilePath + filenamecraftbot));
+            openFileDialog.OpenLogDirectory(Path.GetDirectoryName(Config.OutputFilePath +
+                                                                  filenamecraftbot));
             Environment.Exit(1);
         }
 
