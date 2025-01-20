@@ -12,6 +12,7 @@ using Path = System.IO.Path;
 using EngLibrary;
 using System.Xml.Serialization;
 using Formatting = Newtonsoft.Json.Formatting;
+using SMC_GUI;
 
 
 
@@ -42,6 +43,7 @@ namespace SMC_GUI
         public Dictionary<string, bool> MessageList = new Dictionary<string, bool>();
         public List<CheckBox> CheckBoxes = new List<CheckBox>();
         public List<TextBox> TextBoxes = new List<TextBox>();
+        public Dictionary<CheckBox, TextBox> pairs = new Dictionary<CheckBox, TextBox>();
         public Config Config;
         public EngLibrary.OpenFileDialog openFileDialog;
         public Loger loger;
@@ -73,7 +75,7 @@ namespace SMC_GUI
                 this.Close();
             }
 
-            bool? Folder = folder.CreateFolder(AppDomain.CurrentDomain.BaseDirectory + "Log");
+            bool? Folder = folder.CreateFolder(AppDomain.CurrentDomain.BaseDirectory +"Log", "Log");
             
             LogFileName = Path.Combine(loger.GenerateLogFileName());
             LogFilePath = Path.Combine(Config.LogFilePath, LogFileName);
@@ -105,7 +107,17 @@ namespace SMC_GUI
                 case Config.Mode.Compare:
                     try
                     {
-                        CompareJson(Config.InputDirectory);
+                        Compare compare = new Compare();
+                        compare.CompareJson(Config.InputDirectory, loger, fileStream,openFileDialog,
+                            Config, items, itemsHideout);
+
+                        folder.CreateFolder(AppDomain.CurrentDomain.BaseDirectory, "Output");
+                        // Сохраняем данные в файлы
+                        Save("Output/craftbot.json", items);
+                        Save("Output/hideout.json", itemsHideout);
+
+                        openFileDialog.OpenLogDirectory(Path.GetDirectoryName("Output / hideout.json"));
+                        Environment.Exit(1);
                     }
                     catch (Exception ex)
                     {
@@ -428,6 +440,7 @@ namespace SMC_GUI
 
                 CheckBoxes.Add(checkBox);
                 TextBoxes.Add(quantityTextBox);
+                pairs.Add(checkBox, quantityTextBox);
 
 
 
@@ -628,8 +641,8 @@ namespace SMC_GUI
 
         public void ResizeWindow()
         {
-            this.Width = SystemParameters.PrimaryScreenWidth * 0.8; // Устанавливаем ширину окна на 80% ширины экрана
-            this.Height = SystemParameters.PrimaryScreenHeight * 0.8; // Устанавливаем высоту окна на 80% высоты экрана
+            this.Width = SystemParameters.PrimaryScreenWidth * 1; // Устанавливаем ширину окна на 80% ширины экрана
+            this.Height = SystemParameters.PrimaryScreenHeight * 1; // Устанавливаем высоту окна на 80% высоты экрана
         }
 
         public int SplitString(string value, int index)
@@ -832,67 +845,7 @@ namespace SMC_GUI
             return template;
         }
 
-        public void CompareJson(string filepath)
-        {
-            Reader reader = new Reader();
-            string[] files = Directory.GetFiles(filepath);
-
-            // Очистите списки перед заполнением, чтобы избежать дублирования данных
-            List<Item> items = new List<Item>();
-            List<Item> itemsHideout = new List<Item>();
-
-            foreach (var file in files)
-            {
-                try
-                {
-                    string name = Path.GetFileName(file);
-                    int startIndex = name.IndexOf('_') + 1; // +1 чтобы пропустить "_" символ
-                    int endIndex = name.IndexOf('_', startIndex); // Найдем следующий символ "_"
-
-                    if (startIndex > 0 && endIndex > startIndex)
-                    {
-                        string result = name.Substring(startIndex, endIndex - startIndex);
-
-                        // Проверяем результат
-                        if (result == "craftbot")
-                        {
-                            var readItems = reader.ReadJson<List<Item>>(
-                                file, loger, fileStream, "ERROR",
-                                openFileDialog, Config.LogFilePath);
-                            if (readItems != null && readItems.Count > 0)
-                            {
-                                items.AddRange(readItems);
-                            }
-                        }
-
-                        if (result == "hideout")
-                        {
-                            var readItemsHideout = reader.ReadJson<List<Item>>(
-                                file, loger, fileStream, "ERROR",
-                                openFileDialog, Config.LogFilePath);
-                            if (readItemsHideout != null && readItemsHideout.Count > 0)
-                            {
-                                itemsHideout.AddRange(readItemsHideout);
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    loger.Log(fileStream, $"Ошибка при обработке файла {file}: {ex.Message}", "ERROR");
-                    openFileDialog.OpenLogDirectory(Config.LogFilePath);
-                    Environment.Exit(1);
-                }
-            }
-
-            folder.CreateFolder(AppDomain.CurrentDomain.BaseDirectory + "Output");
-            // Сохраняем данные в файлы
-            Save("Output/craftbot.json", items);
-            Save("Output/hideout.json", itemsHideout);
-
-            openFileDialog.OpenLogDirectory(Path.GetDirectoryName("Output / hideout.json"));
-            Environment.Exit(1);
-        }
+       
 
         public void Save( string output, List<Item> data)
         {
@@ -948,7 +901,7 @@ namespace SMC_GUI
             // Показ уведомления с количеством элементов
             MessageBox.Show($"Craftbot: {items.Count}\nHideout: {itemsHideout.Count}");
 
-            folder.CreateFolder(AppDomain.CurrentDomain.BaseDirectory +
+            folder.CreateFolder(AppDomain.CurrentDomain.BaseDirectory,
                                 Path.GetDirectoryName(Config.OutputDirectory));
 
             string filenamecraftbot = Description.name.Replace(" ","") + ".json";
@@ -1031,6 +984,24 @@ namespace SMC_GUI
             }
             
         }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var searchTextBox = sender as TextBox;
+            var searchText = searchTextBox.Text.ToLower(); // Приводим к нижнему регистру для нечувствительного поиска
+
+            foreach (CheckBox recipe in pairs.Keys) // Предполагается, что CheckBoxes - это ваш список чекбоксов
+            {
+                if (recipe is CheckBox checkBox)
+                {
+                    var isVisible = string.IsNullOrEmpty(searchText) || checkBox.Content.ToString().ToLower().Contains(searchText);
+                    checkBox.Visibility = isVisible ? Visibility.Visible : Visibility.Collapsed;
+                    pairs.TryGetValue(checkBox, out TextBox textbox);
+                    textbox.Visibility = isVisible ? Visibility.Visible : Visibility.Collapsed;
+                }
+            }
+        }
+
     }
 
 
