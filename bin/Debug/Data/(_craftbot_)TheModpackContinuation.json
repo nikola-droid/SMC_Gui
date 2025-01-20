@@ -1,0 +1,580 @@
+[
+  {
+    "comment": "Asiento del conductor de pie",
+    "itemId": "3b41f562-70c4-4747-9045-3d26ff0e0243",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      },
+      {
+        "quantity": 5,
+        "itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+        "comment": "Электроплата"
+      }
+    ]
+  },
+  {
+    "comment": "Asiento Jetpack - O Mech, Artillero, etc.",
+    "itemId": "ad671132-c345-4edc-96c7-ec835ab3a2c9",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      },
+      {
+        "quantity": 15,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      },
+      {
+        "quantity": 3,
+        "itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+        "comment": "Набор компонентов"
+      }
+    ]
+  },
+  {
+    "comment": "Asiento de la rueda del barco",
+    "itemId": "88e045aa-d3ab-435e-b248-60b34c206e6f",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 25,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      },
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      },
+      {
+        "quantity": 10,
+        "itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+        "comment": "Электроплата"
+      },
+      {
+        "quantity": 5,
+        "itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+        "comment": "Набор компонентов"
+      }
+    ]
+  },
+  {
+    "comment": "Asiento de motocicleta",
+    "itemId": "0513fc6d-fb29-46b6-9409-3ec1a4b79c6f",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 12,
+        "itemId": "3440440b-d362-4473-aa03-b7c41e1fe7ad",
+        "comment": "Хлопок"
+      },
+      {
+        "quantity": 20,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      },
+      {
+        "quantity": 10,
+        "itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+        "comment": "Электроплата"
+      },
+      {
+        "quantity": 5,
+        "itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+        "comment": "Набор компонентов"
+      }
+    ]
+  },
+  {
+    "comment": "Mod Pistón (256)",
+    "itemId": "a6d186ad-c9ba-4b6d-922c-6c13dfcea230",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 1,
+        "itemId": "31f14f52-f4d8-4b9f-9d6e-7412497c9284",
+        "comment": "Поршень 2 тир"
+      },
+      {
+        "quantity": 5,
+        "itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+        "comment": "Набор компонентов"
+      },
+      {
+        "quantity": 2,
+        "itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+        "comment": "Клей"
+      },
+      {
+        "quantity": 1,
+        "itemId": "9f0f56e8-2c31-4d83-996c-d00a9b296c3f",
+        "comment": "Логический затвор"
+      }
+    ]
+  },
+  {
+    "comment": "Suspensión - 5x",
+    "itemId": "dd676b18-fd06-4aed-baa0-55d4599fdfa3",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 30,
+        "itemId": "1016cafc-9f6b-40c9-8713-9019d399783f",
+        "comment": "Металл 2 тир"
+      },
+      {
+        "quantity": 20,
+        "itemId": "1147e59d-6940-42b4-840b-07f05054f5e0",
+        "comment": "Нефть"
+      }
+    ]
+  },
+  {
+    "comment": "Suspensión - 4x",
+    "itemId": "9f016a8d-8cbe-4471-b210-f36f5f280758",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 25,
+        "itemId": "1016cafc-9f6b-40c9-8713-9019d399783f",
+        "comment": "Металл 2 тир"
+      },
+      {
+        "quantity": 15,
+        "itemId": "1147e59d-6940-42b4-840b-07f05054f5e0",
+        "comment": "Нефть"
+      }
+    ]
+  },
+  {
+    "comment": "Mini Suspensión - Corta",
+    "itemId": "c0d086eb-de4a-4ba9-922a-1c66f129d2ae",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "1016cafc-9f6b-40c9-8713-9019d399783f",
+        "comment": "Металл 2 тир"
+      },
+      {
+        "quantity": 10,
+        "itemId": "1147e59d-6940-42b4-840b-07f05054f5e0",
+        "comment": "Нефть"
+      }
+    ]
+  },
+  {
+    "comment": "Mini Suspensión - Larga",
+    "itemId": "8d6e5264-9f90-400a-a471-6c0cae101f4d",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 20,
+        "itemId": "1016cafc-9f6b-40c9-8713-9019d399783f",
+        "comment": "Металл 2 тир"
+      },
+      {
+        "quantity": 12,
+        "itemId": "1147e59d-6940-42b4-840b-07f05054f5e0",
+        "comment": "Нефть"
+      }
+    ]
+  },
+  {
+    "comment": "1x1 Micro Cohete",
+    "itemId": "036fbe44-45df-11e6-beb8-9e71128cae77",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 20,
+        "itemId": "1016cafc-9f6b-40c9-8713-9019d399783f",
+        "comment": "Металл 2 тир"
+      },
+      {
+        "quantity": 12,
+        "itemId": "1147e59d-6940-42b4-840b-07f05054f5e0",
+        "comment": "Нефть"
+      },
+      {
+        "quantity": 10,
+        "itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+        "comment": "Электроплата"
+      },
+      {
+        "quantity": 5,
+        "itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+        "comment": "Набор компонентов"
+      }
+    ]
+  },
+  {
+    "comment": "Botón de arranque",
+    "itemId": "f694b406-4f59-46cb-bf33-05e11851eaac",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      },
+      {
+        "quantity": 5,
+        "itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+        "comment": "Электроплата"
+      }
+    ]
+  },
+  {
+    "comment": "Cohete Pico - Baja potencia",
+    "itemId": "c394b6e8-554c-4074-a119-ab2fec55e456",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 12,
+        "itemId": "1016cafc-9f6b-40c9-8713-9019d399783f",
+        "comment": "Металл 2 тир"
+      },
+      {
+        "quantity": 5,
+        "itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+        "comment": "Набор компонентов"
+      },
+      {
+        "quantity": 5,
+        "itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+        "comment": "Электроплата"
+      },
+      {
+        "quantity": 10,
+        "itemId": "1147e59d-6940-42b4-840b-07f05054f5e0",
+        "comment": "Нефть"
+      }
+    ]
+  },
+  {
+    "comment": "Interruptor de marcación",
+    "itemId": "deeb37a4-b9ba-4ba7-ad4b-6f5fd5e1d6f2",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      },
+      {
+        "quantity": 5,
+        "itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+        "comment": "Электроплата"
+      }
+    ]
+  },
+  {
+    "comment": "Palanca del acelerador - Interruptor",
+    "itemId": "7022c522-7b33-4638-8dfb-0dfa7c6eb36f",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      },
+      {
+        "quantity": 5,
+        "itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+        "comment": "Электроплата"
+      }
+    ]
+  },
+  {
+    "comment": "Palanca mediana - Interruptor",
+    "itemId": "e9ab70ae-2c6c-4f68-86c3-2f652c180fc5",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      },
+      {
+        "quantity": 5,
+        "itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+        "comment": "Электроплата"
+      }
+    ]
+  },
+  {
+    "comment": "Palanca grande - Interruptor",
+    "itemId": "ee92187e-8363-4ff6-a7ae-c96e60450537",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 20,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      },
+      {
+        "quantity": 8,
+        "itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+        "comment": "Электроплата"
+      },
+      {
+        "quantity": 2,
+        "itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+        "comment": "Набор компонентов"
+      }
+    ]
+  },
+  {
+    "comment": "Interruptor de válvula de tubería",
+    "itemId": "73f35954-e7d2-4a32-bc7c-b88a341ab792",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      },
+      {
+        "quantity": 5,
+        "itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+        "comment": "Электроплата"
+      },
+      {
+        "quantity": 2,
+        "itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+        "comment": "Набор компонентов"
+      }
+    ]
+  },
+  {
+    "comment": "Luz - Redondo",
+    "itemId": "bfbd310d-7c07-4f08-a8cc-9a69e70a9ff0",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      },
+      {
+        "quantity": 10,
+        "itemId": "5f41af56-df4c-4837-9b3c-10781335757f",
+        "comment": "Стекло"
+      },
+      {
+        "quantity": 5,
+        "itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+        "comment": "Электроплата"
+      }
+    ]
+  },
+  {
+    "comment": "Luz - Rectángulo",
+    "itemId": "d7de689e-5082-4323-b6c4-eb1ce8f29719",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      },
+      {
+        "quantity": 10,
+        "itemId": "5f41af56-df4c-4837-9b3c-10781335757f",
+        "comment": "Стекло"
+      },
+      {
+        "quantity": 5,
+        "itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+        "comment": "Электроплата"
+      }
+    ]
+  },
+  {
+    "comment": "Luz - Redondo Mini",
+    "itemId": "5a3ea22a-99b1-48eb-b169-3243ad49b27c",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      },
+      {
+        "quantity": 10,
+        "itemId": "5f41af56-df4c-4837-9b3c-10781335757f",
+        "comment": "Стекло"
+      },
+      {
+        "quantity": 5,
+        "itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+        "comment": "Электроплата"
+      }
+    ]
+  },
+  {
+    "comment": "Luz - Cuadrado",
+    "itemId": "7b51eae8-c55c-4102-b9eb-6c23ca547e83",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      },
+      {
+        "quantity": 10,
+        "itemId": "5f41af56-df4c-4837-9b3c-10781335757f",
+        "comment": "Стекло"
+      },
+      {
+        "quantity": 5,
+        "itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+        "comment": "Электроплата"
+      }
+    ]
+  },
+  {
+    "comment": "Luz - Cubo",
+    "itemId": "e83e6fd9-e963-485f-8be0-43895af58ee3",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      },
+      {
+        "quantity": 10,
+        "itemId": "5f41af56-df4c-4837-9b3c-10781335757f",
+        "comment": "Стекло"
+      },
+      {
+        "quantity": 5,
+        "itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+        "comment": "Электроплата"
+      }
+    ]
+  },
+  {
+    "comment": "Luz Delgada",
+    "itemId": "0f994efc-b697-48e4-8ce0-f53eae15d41b",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      },
+      {
+        "quantity": 10,
+        "itemId": "5f41af56-df4c-4837-9b3c-10781335757f",
+        "comment": "Стекло"
+      },
+      {
+        "quantity": 5,
+        "itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+        "comment": "Электроплата"
+      }
+    ]
+  },
+  {
+    "comment": "Controlador de superficie",
+    "itemId": "9687439e-70a7-4c52-8dd1-d6fa6ec93df8",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 1,
+        "itemId": "598d865c-324c-4129-9c57-21a6abd2cb2e",
+        "comment": "Контроллер 1 тир"
+      },
+      {
+        "quantity": 5,
+        "itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+        "comment": "Набор компонентов"
+      },
+      {
+        "quantity": 5,
+        "itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+        "comment": "Электроплата"
+      }
+    ]
+  },
+  {
+    "comment": "Lógica de superficie",
+    "itemId": "60375a3b-0d70-43a2-a97a-4a4234b500dd",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 1,
+        "itemId": "8f7fd0e7-c46e-4944-a414-7ce2437bb30f",
+        "comment": "Таймер"
+      },
+      {
+        "quantity": 5,
+        "itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+        "comment": "Набор компонентов"
+      },
+      {
+        "quantity": 5,
+        "itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+        "comment": "Электроплата"
+      }
+    ]
+  },
+  {
+    "comment": "Temporizador de superficie",
+    "itemId": "f6b70b49-ea25-47cc-9dac-e2dc90e67d07",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 1,
+        "itemId": "9f0f56e8-2c31-4d83-996c-d00a9b296c3f",
+        "comment": "Логический затвор"
+      },
+      {
+        "quantity": 5,
+        "itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+        "comment": "Набор компонентов"
+      },
+      {
+        "quantity": 10,
+        "itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+        "comment": "Электроплата"
+      }
+    ]
+  }
+]

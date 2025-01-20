@@ -1,0 +1,53 @@
+[
+  {
+    "comment": "Thompson Submachine Gun",
+    "itemId": "336a7328-4d50-432c-8698-2ed511187cc7",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "4ec64cda-1a5b-4465-88b4-5ea452c4a556",
+        "comment": "Ананас"
+      },
+      {
+        "quantity": 5,
+        "itemId": "b5cdd503-fe1c-482b-86ab-6a5d2cc4fc8f",
+        "comment": "Брокколи"
+      },
+      {
+        "quantity": 2,
+        "itemId": "096d4daf-639e-4947-a1a6-1890eaa94464",
+        "comment": "Контейнер с картошкой"
+      }
+    ]
+  },
+  {
+    "comment": "Mosin-Nagant M44",
+    "itemId": "c0cb7836-075a-478a-af3d-0b7360721527",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "4ec64cda-1a5b-4465-88b4-5ea452c4a556",
+        "comment": "Ананас"
+      },
+      {
+        "quantity": 12,
+        "itemId": "b5cdd503-fe1c-482b-86ab-6a5d2cc4fc8f",
+        "comment": "Брокколи"
+      },
+      {
+        "quantity": 2,
+        "itemId": "096d4daf-639e-4947-a1a6-1890eaa94464",
+        "comment": "Контейнер с картошкой"
+      },
+      {
+        "quantity": 1,
+        "itemId": "e77d9577-589a-446b-96c1-f6d0d7495489",
+        "comment": "Ящик черники"
+      }
+    ]
+  }
+]

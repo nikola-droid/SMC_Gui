@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|c:\\users\\nikolaeng\\source\\repos\\smc_gui\\smc_gui\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\settings.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|solutionrelative:settings.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|solutionrelative:properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\compare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|solutionrelative:compare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|solutionrelative:app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\settings.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|solutionrelative:settings.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\settings.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|solutionrelative:settings.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,11 +34,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
@@ -42,21 +46,7 @@
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-01-16T14:37:12.788Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Settings.xaml",
-              "DocumentMoniker": "C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\Settings.xaml",
-              "RelativeDocumentMoniker": "Settings.xaml",
-              "ToolTip": "C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\Settings.xaml",
-              "RelativeToolTip": "Settings.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-19T07:57:51.013Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -74,36 +64,58 @@
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAgwEsAAABeAAAAAAAAAA==",
+              "ViewState": "AgIAANIDAAAAAAAAAAAmwOADAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-16T14:40:09.971Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "Compare.cs",
+              "DocumentMoniker": "C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\Compare.cs",
+              "RelativeDocumentMoniker": "Compare.cs",
+              "ToolTip": "C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\Compare.cs",
+              "RelativeToolTip": "Compare.cs",
+              "ViewState": "AgIAAAUAAADoMjMzMzMrwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-20T13:50:15.599Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AssemblyInfo.cs",
+              "DocumentMoniker": "C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\Properties\\AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "Properties\\AssemblyInfo.cs",
+              "ToolTip": "C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\Properties\\AssemblyInfo.cs",
+              "RelativeToolTip": "Properties\\AssemblyInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-19T16:34:03.22Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Settings.xaml.cs",
               "DocumentMoniker": "C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\Settings.xaml.cs",
               "RelativeDocumentMoniker": "Settings.xaml.cs",
               "ToolTip": "C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\Settings.xaml.cs",
               "RelativeToolTip": "Settings.xaml.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAAACAAAAA8AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T07:57:34.229Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-19T07:57:34.229Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\App.xaml.cs",
               "RelativeDocumentMoniker": "App.xaml.cs",
               "ToolTip": "C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\App.xaml.cs",
               "RelativeToolTip": "App.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAADwvxMAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T07:51:08.063Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-19T07:51:08.063Z"
             }
           ]
         }

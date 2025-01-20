@@ -1,0 +1,16 @@
+[
+  {
+    "comment": "Труба для Пушек",
+    "itemId": "7396cead-3624-49d7-8201-0b24ad3c4fcc",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 25,
+        "itemId": "1016cafc-9f6b-40c9-8713-9019d399783f",
+        "comment": "Металл 2 тир"
+      }
+    ]
+  },
+  
+]

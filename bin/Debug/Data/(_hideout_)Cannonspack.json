@@ -1,0 +1,456 @@
+[
+  {
+    "comment": "Зенитная Пушка",
+    "itemId": "49de462c-2f36-4ad5-802c-c4add235dc53",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 2,
+        "itemId": "e77d9577-589a-446b-96c1-f6d0d7495489",
+        "comment": "Ящик черники"
+      },
+      {
+        "quantity": 40,
+        "itemId": "f74c2891-79a9-45e0-982e-4896651c2e25",
+        "comment": "Химикаты"
+      },
+      {
+        "quantity": 40,
+        "itemId": "1147e59d-6940-42b4-840b-07f05054f5e0",
+        "comment": "Нефть"
+      }
+    ]
+  },
+  {
+    "comment": "Танковая Пушка",
+    "itemId": "bc8178a9-8a38-4c43-a0d0-8a0f242a59c7",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 3,
+        "itemId": "9cd8288c-5a19-479f-af47-9eb55230ade2",
+        "comment": "Ящик морковки"
+      },
+      {
+        "quantity": 10,
+        "itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+        "comment": "Набор компонентов"
+      },
+      {
+        "quantity": 40,
+        "itemId": "f74c2891-79a9-45e0-982e-4896651c2e25",
+        "comment": "Химикаты"
+      }
+    ]
+  },
+  {
+    "comment": "Танковая Пушка 2",
+    "itemId": "4295196d-cbd6-40c6-badc-ff9011208ad5",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 2,
+        "itemId": "9cd8288c-5a19-479f-af47-9eb55230ade2",
+        "comment": "Ящик морковки"
+      },
+      {
+        "quantity": 1,
+        "itemId": "c10a77d5-3357-4cb4-8113-a2cbe69c7ff2",
+        "comment": "Ящик апельсинов"
+      },
+      {
+        "quantity": 1,
+        "itemId": "59ea6ce8-239b-4eed-8847-a51b907d9b42",
+        "comment": "Помпа"
+      }
+    ]
+  },
+  {
+    "comment": "Умная Ракетница",
+    "itemId": "e8a8a8ce-7b00-4e2b-b417-75e8995a02d8",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 2,
+        "itemId": "bc69cb3b-7e0c-4c36-805d-f8d89fcfced3",
+        "comment": "Ящик ананасов"
+      },
+      {
+        "quantity": 3,
+        "itemId": "9f0f56e8-2c31-4d83-996c-d00a9b296c3f",
+        "comment": "Логический затвор"
+      },
+      {
+        "quantity": 1,
+        "itemId": "8f7fd0e7-c46e-4944-a414-7ce2437bb30f",
+        "comment": "Таймер"
+      },
+      {
+        "quantity": 1,
+        "itemId": "6bb84152-c4d7-4644-bc37-a3becd79298d",
+        "comment": "Контроллер 3 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Ракетница",
+    "itemId": "04c1c87f-da87-4f5e-8d70-1ca452314728",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 2,
+        "itemId": "e77d9577-589a-446b-96c1-f6d0d7495489",
+        "comment": "Ящик черники"
+      },
+      {
+        "quantity": 40,
+        "itemId": "f74c2891-79a9-45e0-982e-4896651c2e25",
+        "comment": "Химикаты"
+      },
+      {
+        "quantity": 1,
+        "itemId": "46396518-8c29-4da9-81bb-a020f4baf5b2",
+        "comment": "Поршень 3 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Танковая Пушка 3",
+    "itemId": "388ccd57-1be9-40cc-b96b-69dd16eb4f32",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 2,
+        "itemId": "9cd8288c-5a19-479f-af47-9eb55230ade2",
+        "comment": "Ящик морковки"
+      },
+      {
+        "quantity": 2,
+        "itemId": "1dcd74ca-39ba-4b00-a36a-3381b25055f4",
+        "comment": "Ящик помидоров"
+      },
+      {
+        "quantity": 1,
+        "itemId": "46396518-8c29-4da9-81bb-a020f4baf5b2",
+        "comment": "Поршень 3 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Пушка от M1 Abrams",
+    "itemId": "03e1ecbd-17ee-4045-a5d8-366f6e656555",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 1,
+        "itemId": "e77d9577-589a-446b-96c1-f6d0d7495489",
+        "comment": "Ящик черники"
+      },
+      {
+        "quantity": 2,
+        "itemId": "1dcd74ca-39ba-4b00-a36a-3381b25055f4",
+        "comment": "Ящик помидоров"
+      },
+      {
+        "quantity": 1,
+        "itemId": "46396518-8c29-4da9-81bb-a020f4baf5b2",
+        "comment": "Поршень 3 тир"
+      },
+      {
+        "quantity": 1,
+        "itemId": "8d601982-4608-4d5e-bb9e-e4041486f7c7",
+        "comment": "Запертый фермер"
+      }
+    ]
+  },
+  {
+    "comment": "Корабельная Пушка",
+    "itemId": "6c0bbf06-364f-4d51-98c2-1631b2d09cd5",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 2,
+        "itemId": "e77d9577-589a-446b-96c1-f6d0d7495489",
+        "comment": "Ящик черники"
+      },
+      {
+        "quantity": 2,
+        "itemId": "59ea6ce8-239b-4eed-8847-a51b907d9b42",
+        "comment": "Помпа"
+      },
+      {
+        "quantity": 1,
+        "itemId": "8d601982-4608-4d5e-bb9e-e4041486f7c7",
+        "comment": "Запертый фермер"
+      }
+    ]
+  },
+  {
+    "comment": "Корабельная Пушка 2",
+    "itemId": "d0352961-c071-4278-8f23-99fcb8a7a377",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 2,
+        "itemId": "c10a77d5-3357-4cb4-8113-a2cbe69c7ff2",
+        "comment": "Ящик апельсинов"
+      },
+      {
+        "quantity": 2,
+        "itemId": "59ea6ce8-239b-4eed-8847-a51b907d9b42",
+        "comment": "Помпа"
+      },
+      {
+        "quantity": 1,
+        "itemId": "8d601982-4608-4d5e-bb9e-e4041486f7c7",
+        "comment": "Запертый фермер"
+      }
+    ]
+  },
+  {
+    "comment": "Рельсотрон",
+    "itemId": "fac1f66a-a01c-4d8d-a838-e887455c38ae",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 4,
+        "itemId": "99477093-e819-4199-b62a-fda6143aae89",
+        "comment": "Ящик брокколи"
+      },
+      {
+        "quantity": 4,
+        "itemId": "bc69cb3b-7e0c-4c36-805d-f8d89fcfced3",
+        "comment": "Ящик ананасов"
+      },
+      {
+        "quantity": 5,
+        "itemId": "9f0f56e8-2c31-4d83-996c-d00a9b296c3f",
+        "comment": "Логический затвор"
+      },
+      {
+        "quantity": 3,
+        "itemId": "da4833fd-f981-4e08-a9f7-48e630a7c146",
+        "comment": "Контейнер с батареями"
+      }
+    ]
+  },
+  {
+    "comment": "Рельсотрон 2",
+    "itemId": "75e1e5a3-acc5-48cf-b4c1-bb8795940002",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 4,
+        "itemId": "bc69cb3b-7e0c-4c36-805d-f8d89fcfced3",
+        "comment": "Ящик ананасов"
+      },
+      {
+        "quantity": 4,
+        "itemId": "99477093-e819-4199-b62a-fda6143aae89",
+        "comment": "Ящик брокколи"
+      },
+      {
+        "quantity": 3,
+        "itemId": "da4833fd-f981-4e08-a9f7-48e630a7c146",
+        "comment": "Контейнер с батареями"
+      },
+      {
+        "quantity": 1,
+        "itemId": "a092359d-5cea-484d-a274-470d9a567632",
+        "comment": "Контроллер 5 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Электромагнитная Пушка",
+    "itemId": "e442535e-e75e-4079-9acc-9005e5ba0c08",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 3,
+        "itemId": "0bc74539-df8a-47c7-aad8-d55d809a01e4",
+        "comment": "Ящик бананов"
+      },
+      {
+        "quantity": 1,
+        "itemId": "e77d9577-589a-446b-96c1-f6d0d7495489",
+        "comment": "Ящик черники"
+      },
+      {
+        "quantity": 1,
+        "itemId": "bc69cb3b-7e0c-4c36-805d-f8d89fcfced3",
+        "comment": "Ящик ананасов"
+      },
+      {
+        "quantity": 2,
+        "itemId": "da4833fd-f981-4e08-a9f7-48e630a7c146",
+        "comment": "Контейнер с батареями"
+      }
+    ]
+  },
+  {
+    "comment": "Пушка M109",
+    "itemId": "bd428d5e-c519-43fe-a75f-76cfddb5b700",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 3,
+        "itemId": "c10a77d5-3357-4cb4-8113-a2cbe69c7ff2",
+        "comment": "Ящик апельсинов"
+      },
+      {
+        "quantity": 1,
+        "itemId": "e77d9577-589a-446b-96c1-f6d0d7495489",
+        "comment": "Ящик черники"
+      },
+      {
+        "quantity": 2,
+        "itemId": "557c1087-9023-476f-b5b4-80f0a8a17ce3",
+        "comment": "Контейнер с взрывчаткой"
+      }
+    ]
+  },
+  {
+    "comment": "Пушка от Schwerer Gustav (Дора)",
+    "itemId": "f85af057-f779-4eca-ad1c-58d2828d3404",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 5,
+        "itemId": "c10a77d5-3357-4cb4-8113-a2cbe69c7ff2",
+        "comment": "Ящик апельсинов"
+      },
+      {
+        "quantity": 2,
+        "itemId": "99477093-e819-4199-b62a-fda6143aae89",
+        "comment": "Ящик брокколи"
+      },
+      {
+        "quantity": 2,
+        "itemId": "2f004fdf-bfb0-46f3-a7ac-7711100bee0c",
+        "comment": "Поршень 5 тир"
+      },
+      {
+        "quantity": 3,
+        "itemId": "557c1087-9023-476f-b5b4-80f0a8a17ce3",
+        "comment": "Контейнер с взрывчаткой"
+      }
+    ]
+  },
+  {
+    "comment": "Детектор Умных Ракет",
+    "itemId": "d7070a10-403a-4f5f-9d4f-8bb321c6b562",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 2,
+        "itemId": "0bc74539-df8a-47c7-aad8-d55d809a01e4",
+        "comment": "Ящик бананов"
+      },
+      {
+        "quantity": 1,
+        "itemId": "9cd8288c-5a19-479f-af47-9eb55230ade2",
+        "comment": "Ящик морковки"
+      },
+      {
+        "quantity": 3,
+        "itemId": "9f0f56e8-2c31-4d83-996c-d00a9b296c3f",
+        "comment": "Логический затвор"
+      }
+    ]
+  },
+  {
+    "comment": "Автомат Сброса Тепл. Ловушек",
+    "itemId": "b86bc11c-8922-47c2-b5bc-e184d3378a81",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 2,
+        "itemId": "e77d9577-589a-446b-96c1-f6d0d7495489",
+        "comment": "Ящик черники"
+      },
+      {
+        "quantity": 1,
+        "itemId": "9cd8288c-5a19-479f-af47-9eb55230ade2",
+        "comment": "Ящик морковки"
+      },
+      {
+        "quantity": 1,
+        "itemId": "99477093-e819-4199-b62a-fda6143aae89",
+        "comment": "Ящик брокколи"
+      }
+    ]
+  },
+  {
+    "comment": "Маленькая ракетная установка",
+    "itemId": "51356e94-23be-488e-af0c-5ef1d0129854", 
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 2,
+        "itemId": "e77d9577-589a-446b-96c1-f6d0d7495489",
+        "comment": "Ящик черники"
+      },
+      {
+        "quantity": 1,
+        "itemId": "c10a77d5-3357-4cb4-8113-a2cbe69c7ff2",
+        "comment": "Ящик апельсинов"
+      },
+      {
+        "quantity": 2,
+        "itemId": "557c1087-9023-476f-b5b4-80f0a8a17ce3",
+        "comment": "Контейнер с взрывчаткой"
+      },
+      {
+        "quantity": 10,
+        "itemId": "910a7f2c-52b0-46eb-8873-ad13255539af",
+        "comment": "Батарея"
+      }
+    ]
+  },
+  {
+    "comment": "Большая ракетная установка",
+    "itemId": "0dc868d7-5e01-4183-b3bb-63236595ba36",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 1,
+        "itemId": "bc69cb3b-7e0c-4c36-805d-f8d89fcfced3",
+        "comment": "Ящик ананасов"
+      },
+      {
+        "quantity": 2,
+        "itemId": "99477093-e819-4199-b62a-fda6143aae89",
+        "comment": "Ящик брокколи"
+      },
+      {
+        "quantity": 4,
+        "itemId": "557c1087-9023-476f-b5b4-80f0a8a17ce3",
+        "comment": "Контейнер с взрывчаткой"
+      },
+      {
+        "quantity": 2,
+        "itemId": "8d601982-4608-4d5e-bb9e-e4041486f7c7",
+        "comment": "Запертый фермер"
+      }
+    ]
+  }
+]

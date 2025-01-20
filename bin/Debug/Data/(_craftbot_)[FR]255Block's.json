@@ -1,0 +1,216 @@
+[ // [FR]255Block's start
+  {
+    "comment": "Ультра легкий блок",
+    "itemId": "d2ae5d36-4cf3-4b9f-9dc8-d97c6cad72af",
+    "quantity": 15,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 20,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Супер тяжелый блок",
+    "itemId": "6eb7a761-5049-4574-8c13-cbaab4dc95b3",
+    "quantity": 15,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 20,
+        "itemId": "e281599c-2343-4c86-886e-b2c1444e8810",
+        "comment": "Бетон 3 тир "
+      }
+    ]
+  },
+  {
+    "comment": "Зеленый экран",
+    "itemId": "4587f363-6e04-4832-a052-c82b62f50050",
+    "quantity": 25,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 20,
+        "itemId": "5f41af56-df4c-4837-9b3c-10781335757f",
+        "comment": "Стекло"
+      },
+      {
+        "quantity": 5,
+        "itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+        "comment": "Электроплата"
+      }
+    ]
+  },
+  {
+    "comment": "Ультра тяжелый блок",
+    "itemId": "51cc2c98-f58d-4a05-a346-65a075e4eaef",
+    "quantity": 25,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 40,
+        "itemId": "e281599c-2343-4c86-886e-b2c1444e8810",
+        "comment": "Бетон 3 тир "
+      }
+    ]
+  },
+  {
+    "comment": "2Х Тяжелый блок",
+    "itemId": "c7451c51-c132-4605-8df1-411976d73a3d",
+    "quantity": 40,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 60,
+        "itemId": "e281599c-2343-4c86-886e-b2c1444e8810",
+        "comment": "Бетон 3 тир "
+      }
+    ]
+  },
+  {
+    "comment": "Тяжелый блок",
+    "itemId": "782d381d-da83-4858-a811-22b46c599960",
+    "quantity": 15,
+    "craftTime": 1,
+    "ingredientList": [
+     {
+        "quantity": 20,
+        "itemId": "e281599c-2343-4c86-886e-b2c1444e8810",
+        "comment": "Бетон 3 тир "
+      }
+    ]
+  },
+  {
+    "comment": "Блок среднего веса",
+    "itemId": "53950e05-85c2-4d5e-9ff4-e1b672357d3c",
+    "quantity": 15,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 20,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Легкий блок",
+    "itemId": "7a6f07d2-fd80-4648-833b-4403037758a9",
+    "quantity": 10,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "1897ee42-0291-43e4-9645-8c5a5d310398",
+        "comment": "Дерево 2 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Плоское стекло",
+    "itemId": "b0c40b54-ff1d-44b8-8e36-fb0283185b0e",
+    "quantity": 10,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "5f41af56-df4c-4837-9b3c-10781335757f",
+        "comment": "Стекло"
+      }
+    ]
+  },
+  {
+    "comment": "Светящийся блок",
+    "itemId": "64899bee-101b-4735-897b-4e4e3f16c136",
+    "quantity": 10,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "5f41af56-df4c-4837-9b3c-10781335757f",
+        "comment": "Стекло"
+      },
+      {
+        "quantity": 1,
+        "itemId": "ed27f5e2-cac5-4a32-a5d9-49f116acc6af",
+        "comment": "Фонарь"
+      },
+      {
+        "quantity": 1,
+        "itemId": "9f0f56e8-2c31-4d83-996c-d00a9b296c3f",
+        "comment": "Логический затвор"
+      }
+    ]
+  },
+  {
+    "comment": "Невидимый блок",
+    "itemId": "df74b0bb-e4d3-4a3a-ab31-f00de5eab61e",
+    "quantity": 10,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "f74c2891-79a9-45e0-982e-4896651c2e25",
+        "comment": "Химикаты"
+      },
+      {
+        "quantity": 20,
+        "itemId": "869d4736-289a-4952-96cd-8a40117a2d28",
+        "comment": "Вода"
+      },
+      {
+        "quantity": 10,
+        "itemId": "1147e59d-6940-42b4-840b-07f05054f5e0",
+        "comment": "Нефть"
+      }
+    ]
+  },
+  {
+    "comment": "Блок травы",
+    "itemId": "b1f9f016-dc04-486c-a824-d56dea53ffbf",
+    "quantity": 15,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "f74c2891-79a9-45e0-982e-4896651c2e25",
+        "comment": "Химикаты"
+      },
+      {
+        "quantity": 20,
+        "itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+        "comment": "Дерево 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Камуфляжный блок",
+    "itemId": "5b7fad7d-fd1d-4211-9eb1-156437ad11d3",
+    "quantity": 25,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "869d4736-289a-4952-96cd-8a40117a2d28",
+        "comment": "Вода"
+      },
+      {
+        "quantity": 20,
+        "itemId": "f74c2891-79a9-45e0-982e-4896651c2e25",
+        "comment": "Химикаты"
+      },
+      {
+        "quantity": 10,
+        "itemId": "1147e59d-6940-42b4-840b-07f05054f5e0",
+        "comment": "Нефть"
+      },
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  }, // [FR]255Block's end
+]

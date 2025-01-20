@@ -1,0 +1,20 @@
+[
+  {
+    "comment": "Desacoplador",
+    "itemId": "f907144d-ae63-4e5e-bff9-f9ca413e2090",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 2,
+        "itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+        "comment": "Набор компонентов"
+      },
+      {
+        "quantity": 5,
+        "itemId": "aa4c9c5e-7fc6-4c27-967f-c550e551c872",
+        "comment": "Банан"
+      }
+    ]
+  }
+]

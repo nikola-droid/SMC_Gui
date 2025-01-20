@@ -1,0 +1,496 @@
+[
+  {
+    "comment": "Pipe TT 2x2",
+    "itemId": "37d494b9-1562-45c7-bc8e-2808f55ee15d",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Pipe CC 2x2",
+    "itemId": "a7f3e226-4f7a-4681-a73c-efe67e3a10b8",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Pipe CC Twisted 2x2",
+    "itemId": "07a71007-ba40-48b4-8444-7e159d9b4051",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Pipe 44 2x2",
+    "itemId": "004bdb26-7b7d-4fd6-9f77-9335abffdddd",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Pipe TC 2x2",
+    "itemId": "5954ab3a-c8e0-4694-b7f2-6465dd56d649",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Pipe TT 3x2",
+    "itemId": "e8a610b4-6c60-41b9-a670-5314397572fb",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Pipe CC 3x2",
+    "itemId": "2b854cd3-7244-4301-98dd-2cb75efb2861",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Pipe CC Fliped 3x2",
+    "itemId": "b7c0de1f-fe9b-4a45-93dd-42e23c7bcdf0",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Pipe CC Twisted 3x2",
+    "itemId": "5cba5d6a-ea72-41db-a8f7-c9dfd3644fc4",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Pipe 44 3x2",
+    "itemId": "5dece79d-ac2e-427c-82d9-72becad7bc83",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Pipe TC 3x2",
+    "itemId": "16fdc864-eaa5-4e84-8dd2-12f8b63f5305",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Pipe TC Fliped 3x2",
+    "itemId": "84d0cabc-55b0-4ba5-b93d-4c917c30c578",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Pipe TI 2x2",
+    "itemId": "24e06130-803f-469d-af87-5d59c1cc426b",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Pipe TI 3x2",
+    "itemId": "6702a061-a3bc-4f77-82dc-dcfaf3f6e498",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Pipe IC",
+    "itemId": "685c3a71-2d98-41ad-b8ac-2bf98e4f1b7f",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Pipe Y",
+    "itemId": "86010d5e-0787-44ea-9fe2-ea15488f2efb",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Pipe V",
+    "itemId": "e63c0d1f-de61-436c-8e3c-3ce4d51668bf",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Pipe Angled I 1x1",
+    "itemId": "2cadab4f-b336-4fe5-9780-398f3946ac45",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Pipe Angled I 2x2",
+    "itemId": "414806cf-3ba5-4946-8696-282a17e85f8d",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Pipe Angled I 3x2",
+    "itemId": "b20e3b05-213f-476e-92de-fa7715df2313",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Pipe Angled I 4x2",
+    "itemId": "cdf9032a-ee85-4e2b-b6fa-cf2c97a74f56",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Pipe Angled I 5x2",
+    "itemId": "aae9db29-da38-4abc-820a-77eb3c18ca35",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Sharp 1x1 Corner",
+    "itemId": "d9f8fa54-6bf4-43bf-8826-771ba4c396d5",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "2x1 X",
+    "itemId": "cfa1d171-0bc1-4670-9994-64f0b1324cd2",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "2x2 X",
+    "itemId": "9c5b2801-70ea-4c1e-8beb-bbbf17b4d48c",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "2x3 X",
+    "itemId": "e169e710-e710-4104-8fe4-4ce0b396d401",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "Round 1x1 Corner",
+    "itemId": "15fbe7f0-4a72-4ab6-9062-78eaf2d55925",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "2x1 V",
+    "itemId": "c05807ce-08b2-4aa1-b7b0-d50453b0fe06",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "2x2 V",
+    "itemId": "af24d47e-de0b-4985-aa8c-ec0af2b1cb07",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "2x3 V",
+    "itemId": "42b41029-5592-43fd-a7ee-1aef6ef40869",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "2 Way Pipe Connector",
+    "itemId": "23f6fc2a-30f2-4356-baf7-9982ffdc48c7",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "3 Way Double Curve Pipe",
+    "itemId": "1df22f6e-7d3d-4775-8596-9cdc7de6c287",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "4 Way Triple Curve Pipe",
+    "itemId": "99c3a8fe-453d-4f99-9d2b-9247777611c3",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "4 Way Double Curve Pipe",
+    "itemId": "530e7793-b652-490d-a03b-138e6338c9a3",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "1 Way Special Pipe",
+    "itemId": "191778c3-e62d-490d-8e81-70d1adc36980",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "3D Pipe 2x2x2",
+    "itemId": "9935daa3-6779-4ac8-b888-2266e6cccf5b",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "3D Pipe 3x2x2",
+    "itemId": "1bd4cedf-f6e0-4624-88cc-c1481c26ed2d",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  },
+  {
+    "comment": "3D Pipe 4x2x2",
+    "itemId": "91e453f3-672e-4c30-8f53-9285e59f90ed",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 10,
+        "itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+        "comment": "Металл 1 тир"
+      }
+    ]
+  }
+]

@@ -1,0 +1,366 @@
+[
+  {
+    "comment": "Wing 1x1",
+    "itemId": "1276dacf-d4c0-4935-865f-6bd9f49695ca",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Wing 2x2",
+    "itemId": "3928a561-ed12-475d-9a94-ae321854517a",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Wing 3x3",
+    "itemId": "3a2e1cbc-e5e1-41f2-8494-c9a8d3edd9b8",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Wing Trim Piece",
+    "itemId": "4bcbb157-dc2f-4e6a-b6d4-22bbbb7bb611",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Wing Wedge 1x1",
+    "itemId": "8c3da4a0-d526-487a-abef-c1a48746aa93",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Wing Wedge 1x2",
+    "itemId": "77da2838-51f3-445e-b02f-b582715a6b6d",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Wing Wedge 1x3",
+    "itemId": "2fc13501-3580-4cec-8fd5-77b6abec9150",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Wing Wedge 1x4",
+    "itemId": "806c26ea-e413-4108-b8e6-e1f9f6779194",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Wing Wedge 1x5",
+    "itemId": "60bd5fa1-25c6-4775-b80b-206dc1cb9cdb",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Wing Wedge 1x6",
+    "itemId": "d0fd3268-8383-4fe8-890d-30d1ca859d80",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Wing Wedge 1x7",
+    "itemId": "641d51f6-6250-4eaf-9601-e4a3541b42c0",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Wing Wedge 1x8",
+    "itemId": "a1f1acef-ed28-4f79-9d6a-9694e8e0d81e",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Wing Wedge 1x9",
+    "itemId": "8b4f8da5-b632-489b-bfbb-55a1e454df0c",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Wing Wedge 1x10",
+    "itemId": "f92899d9-8e4a-432e-817e-12ff5253b1aa",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Wing Edge 1x1",
+    "itemId": "7de55dff-9da4-4719-838d-148acc8616d4",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Wing Edge 1x2",
+    "itemId": "b7e01b51-8f25-4529-b8d2-8f73b5096c40",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Wing Edge 1x3",
+    "itemId": "fc3d1433-dd58-4cf7-95e0-ead8aaba1f62",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Wing Edge 1x4",
+    "itemId": "8b94d330-887d-498f-99a6-88d4714c82f1",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Wing Edge 1x5",
+    "itemId": "5df9a31e-01f7-435b-99ea-d972b8af0aa5",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Wing Edge 1x6",
+    "itemId": "45c787cc-8a86-4c7c-b922-5c1093e6cf9b",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Wing Edge 1x7",
+    "itemId": "538a4627-99e6-488d-ab79-23451de75414",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Wing Edge 1x8",
+    "itemId": "cff2b2f8-0fd8-4ab6-bf92-ed245ebd46ea",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Wing Edge 1x9",
+    "itemId": "d229846a-b379-4199-a902-7f4bfc063fc1",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Wing Edge 1x10",
+    "itemId": "a1808e8c-288c-47e0-9e09-4b6868337068",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Nose Cone 3x2",
+    "itemId": "627188e9-0de0-4333-b4ae-b059f29d4186",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Wing Edge Straight 1x1",
+    "itemId": "855ce598-8c0f-4793-bab1-aa96feae26a5",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Wing X Piece 1x1",
+    "itemId": "d7681059-6da8-4985-a978-f048611fa638",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  },
+  {
+    "comment": "Wing T Piece 1x1",
+    "itemId": "45412ad8-a36f-468f-b5df-76f11e7911e1",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 15,
+        "itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a",
+        "comment": "Пластик"
+      }
+    ]
+  }
+]

@@ -1,0 +1,48 @@
+[
+  {
+    "comment": "BFGOODRICH ВОДНОЕ КОЛЕСО 5X2",
+    "itemId": "9bf16257-76a4-4430-a507-86778404d35c",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 5,
+        "itemId": "6a43fff2-8c6d-4460-9f44-e5483b5267dd",
+        "comment": "Черника"
+      },
+      {
+        "quantity": 4,
+        "itemId": "4ce00048-f735-4fab-b978-5f405e60f48f",
+        "comment": "Свекла"
+      },
+      {
+        "quantity": 4,
+        "itemId": "6d92d8e7-25e9-4698-b83d-a64dc97978c8",
+        "comment": "Помидор"
+      }
+    ]
+  },
+  {
+    "comment": "BFGOODRICH ПУПЫРЧАТОЕ КОЛЕСО 5X2",
+    "itemId": "de00c090-e8ce-43f2-a458-976243d3577f",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 5,
+        "itemId": "f5098301-1693-457b-8efc-83b3504105ac",
+        "comment": "Апельсин"
+      },
+      {
+        "quantity": 4,
+        "itemId": "47ece75a-bfca-4e8a-b618-4f609fcea0da",
+        "comment": "Морковка"
+      },
+      {
+        "quantity": 4,
+        "itemId": "6d92d8e7-25e9-4698-b83d-a64dc97978c8",
+        "comment": "Помидор"
+      }
+    ]
+  }
+]

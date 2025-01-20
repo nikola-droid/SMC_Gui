@@ -1,0 +1,30 @@
+[
+  {
+    "comment": "Magnum .44 Revolver",
+    "itemId": "96f3b45c-8729-4573-bc14-bbe1cc7fd2bb",
+    "quantity": 1,
+    "craftTime": 1,
+    "ingredientList": [
+      {
+        "quantity": 35,
+        "itemId": "1016cafc-9f6b-40c9-8713-9019d399783f",
+        "comment": "Металл 2 тир"
+      },
+      {
+        "quantity": 1,
+        "itemId": "31f14f52-f4d8-4b9f-9d6e-7412497c9284",
+        "comment": "Поршень 2 тир"
+      },
+      {
+        "quantity": 5,
+        "itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+        "comment": "Набор компонентов"
+      },
+      {
+        "quantity": 5,
+        "itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+        "comment": "Клей"
+      }
+    ]
+  }
+]
