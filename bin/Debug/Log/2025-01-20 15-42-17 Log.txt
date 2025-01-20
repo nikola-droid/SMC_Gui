@@ -1,0 +1,2 @@
+2025-01-20 15:42:41   ERROR Произошла ошибка при сохранении данных: Не удалось найти часть пути 
+"C:\Users\nikol\Desktop\для группы\SMC_Gui\bin\Debug\Data\(_craftbot_)BombPropsMod.json". 

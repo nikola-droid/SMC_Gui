@@ -34,7 +34,7 @@
             </FlowDocument>
         </RichTextBox>
         <TextBox HorizontalAlignment="Left" Margin="378,22,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="572" Height="52" Name="ModName" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FFCE8314" Foreground="#FFCE8314" FontSize="24" FontWeight="Bold"/>
-        <Canvas Margin="955,0,0,0" Name="CanvasRecipe"/>
+        <Canvas Margin="955,79,0,0" Name="CanvasRecipe"/>
         <Button x:Name="MyButton" 
                 Content="Выберете режим" Margin="378,79,1013,713" Click="MyButton_Click" >
             <Button.ContextMenu>
@@ -45,6 +45,7 @@
             </Button.ContextMenu>
         </Button>
         <Button Content="Apply" Margin="378,148,1013,646" FontSize="20" Click="Button_Click"/>
+        <TextBox HorizontalAlignment="Left" Margin="955,22,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="581" Height="52" VerticalContentAlignment="Center" FontSize="20" TextChanged="TextBox_TextChanged"/>
 
     </Grid>
 </Window>
