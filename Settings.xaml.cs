@@ -1,6 +1,5 @@
 ﻿using EngLibrary;
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
@@ -42,7 +41,7 @@ namespace SMC_GUI
             TextBox_Time.Text = Config.TimeSpan.ToString();
         }
 
-        
+
 
         private void DisplaySystemParameters()
         {
@@ -64,7 +63,7 @@ namespace SMC_GUI
             return config;
         }
 
-        
+
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             MenuItem selectedMenuItem = sender as MenuItem;
@@ -84,7 +83,7 @@ namespace SMC_GUI
                     Config.OperationMode = Config.Mode.Editor; // Значение по умолчанию
                 }
             }
-            
+
         }
 
         private void MyButton_Click(object sender, RoutedEventArgs e)

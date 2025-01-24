@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|c:\\users\\nikolaeng\\source\\repos\\smc_gui\\smc_gui\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{10D1F2ED-A8F8-41ED-8789-E9FA6E44E87A}|SMC_GUI.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -42,8 +42,7 @@
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-01-16T14:37:12.788Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -55,8 +54,7 @@
               "RelativeToolTip": "Settings.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-01-19T07:57:51.013Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -74,7 +72,7 @@
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\NikolaEng\\source\\repos\\SMC_GUI\\SMC_GUI\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAgwEsAAABeAAAAAAAAAA==",
+              "ViewState": "AgIAAFQCAAAAAAAAAAAAwOsDAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-16T14:40:09.971Z",
               "EditorCaption": ""
@@ -102,8 +100,7 @@
               "RelativeToolTip": "App.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T07:51:08.063Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-19T07:51:08.063Z"
             }
           ]
         }

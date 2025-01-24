@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EngLibrary;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,12 +9,9 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using Newtonsoft.Json;
-using Path = System.IO.Path;
-using EngLibrary;
 using System.Xml.Serialization;
 using Formatting = Newtonsoft.Json.Formatting;
-using SMC_GUI;
+using Path = System.IO.Path;
 
 
 
@@ -23,13 +22,14 @@ namespace SMC_GUI
     /// </summary>
     public partial class MainWindow : Window
     {
+
         private bool _isProgrammaticChange = false;
         public List<Item> items = new List<Item>();
         public List<Item> itemsHideout = new List<Item>();
         public Description Description = new Description
         {
             name = "Error",
-            creatorId ="Error",
+            creatorId = "Error",
             description = "Error",
             fileId = "Error",
             localId = "Error",
@@ -55,7 +55,7 @@ namespace SMC_GUI
 
         public ListBox listBox;
 
-        
+
 
         public MainWindow()
         {
@@ -75,8 +75,8 @@ namespace SMC_GUI
                 this.Close();
             }
 
-            bool? Folder = folder.CreateFolder(AppDomain.CurrentDomain.BaseDirectory +"Log", "Log");
-            
+            bool? Folder = folder.CreateFolder(AppDomain.CurrentDomain.BaseDirectory + "Log");
+
             LogFileName = Path.Combine(loger.GenerateLogFileName());
             LogFilePath = Path.Combine(Config.LogFilePath, LogFileName);
             loger.DestroyLogFile(Config.LogFilePath, Config.TimeSpan, loger, fileStream,
@@ -108,10 +108,10 @@ namespace SMC_GUI
                     try
                     {
                         Compare compare = new Compare();
-                        compare.CompareJson(Config.InputDirectory, loger, fileStream,openFileDialog,
+                        compare.CompareJson(Config.InputDirectory, loger, fileStream, openFileDialog,
                             Config, items, itemsHideout);
 
-                        folder.CreateFolder(AppDomain.CurrentDomain.BaseDirectory, "Output");
+                        folder.CreateFolder(AppDomain.CurrentDomain.BaseDirectory + "Output");
                         // Сохраняем данные в файлы
                         Save("Output/craftbot.json", items);
                         Save("Output/hideout.json", itemsHideout);
@@ -149,25 +149,28 @@ namespace SMC_GUI
             }
         }
 
-        private void NewWindow_DataPassed( string data)
+        private void NewWindow_DataPassed(string data)
         {
-            ReadJson(filepath:data);
+            
+            ReadJson(filepath: data);
+            
+            //Чтение Json с ресурсами 
             ReadJsonRecipe(filepath: "Files/SurvivalRecipeList.json");
+
+
             DisplaySystemParameters();
             ResizeWindow();
             ModsName();
-            Console.WriteLine("вызов чтения json");
+            Console.WriteLine("Вызов чтения json");
 
         }
 
         private void SecondWindow_ConfigUpdated(Config config)
         {
-            // Обработка полученного объекта Config
-            //MessageBox.Show($"Received Setting1: {config.OperationMode}");
-            //MessageBox.Show($"Received Setting1: {config.TimeSpan}");
             Config = config;
             Console.WriteLine("Конфиг прочитан");
         }
+        
         private string GetDropButton()
         {
             return MyButton.Content.ToString();
@@ -180,7 +183,7 @@ namespace SMC_GUI
                 VARIABLE.IsEnabled = true;
                 _isProgrammaticChange = true;
                 VARIABLE.IsChecked = false;
-                
+
             }
 
             foreach (var VARIABLE in TextBoxes)
@@ -212,7 +215,7 @@ namespace SMC_GUI
                 else
                 {
                     // Если элемент не найден, задаем другой цвет 
-                    drawingBrush.Drawing = CreateDrawing(Brushes.Yellow); 
+                    drawingBrush.Drawing = CreateDrawing(Brushes.Yellow);
                 }
 
                 // Присваиваем DrawingBrush выбранному элементу
@@ -246,7 +249,7 @@ namespace SMC_GUI
                     }
                     else
                     {
-                        loger.Log(fileStream,"Данные о предмете не найдены","ERROR");
+                        loger.Log(fileStream, "Данные о предмете не найдены", "ERROR");
                         MessageBox.Show("LogError", "Error",
                             MessageBoxButton.OK, MessageBoxImage.Error);
                         openFileDialog.OpenLogDirectory(Config.LogFilePath);
@@ -285,7 +288,7 @@ namespace SMC_GUI
 
                     Item existingItem = items.FirstOrDefault(variable =>
                         variable.itemId == selectedListBoxItem.Tag);
-                    
+
                     if (existingItem != null)
                     {
                         string ingredientsString = "";
@@ -385,7 +388,7 @@ namespace SMC_GUI
 
             // Чтение JSON и преобразование в список рецептов
             List<Recipe> recipes = reader.ReadJsonToList<Recipe>(filepath,
-                loger, fileStream, "ERROR",openFileDialog ,Config.LogFilePath);
+                loger, fileStream, "ERROR", openFileDialog, Config.LogFilePath);
 
             recipes.Sort((x, y) => string.Compare(x.title, y.title));
 
@@ -419,13 +422,13 @@ namespace SMC_GUI
                 };
 
                 // Создаем ингредиент
-                Ingredient ingredient = new Ingredient( int.Parse(quantityTextBox.Text), // берем значение из TextBox
+                Ingredient ingredient = new Ingredient(int.Parse(quantityTextBox.Text), // берем значение из TextBox
                      recipe.itemId,
                     recipe.title,
                      quantityTextBox,
                      recipe.title);
-                
-            // Создаем CheckBox
+
+                // Создаем CheckBox
                 CheckBox checkBox = new CheckBox
                 {
                     Content = recipe.title,  // Предполагается, что у Recipe есть свойство title
@@ -478,12 +481,12 @@ namespace SMC_GUI
 
             foreach (var fileName in filesToSearch)
             {
-                string[] files = Directory.GetFiles(filepath,fileName,
+                string[] files = Directory.GetFiles(filepath, fileName,
                     SearchOption.AllDirectories);
 
                 if (files.Length > 0)
                 {
-                   
+
                     foreach (string file in files)
                     {
                         filePathsList.Add(file);
@@ -497,10 +500,10 @@ namespace SMC_GUI
                     MessageList.Add(message, false);
                 }
             }
-            
+
             Reader reader = new Reader();
 
-            foreach (var file in filePathsList) 
+            foreach (var file in filePathsList)
             {
                 switch (Path.GetFileName(file))
                 {
@@ -525,20 +528,20 @@ namespace SMC_GUI
                         }
                         break;
                     case "IconMap.xml":
-                         XMLAtlas = reader.SerializerXML<MyGUI>(file, loger,
-                             fileStream, "ERROR", openFileDialog,Config.LogFilePath);
+                        XMLAtlas = reader.SerializerXML<MyGUI>(file, loger,
+                            fileStream, "ERROR", openFileDialog, Config.LogFilePath);
                         foreach (var index in XMLAtlas.Resource.Group.Indices)
                         {
                             if (!XMLAtlasDict.ContainsKey(index.Name))
                             {
                                 XMLAtlasDict.Add(index.Name, index.Frame.Point);
                             }
-                            
+
                         }
                         break;
                     case "inventoryDescriptions.json":
                         InventoryDescriptions.description =
-                            reader.ReadJsonAnNormal<string,string>(
+                            reader.ReadJsonAnNormal<string, string>(
                                 file, loger, fileStream, "ERROR",
                                 openFileDialog, Config.LogFilePath);
                         break;
@@ -547,7 +550,7 @@ namespace SMC_GUI
 
             CreateMessageBox();
             CreateNames();
-            
+
         }
 
         private void ReadCompleateCraftJson(string filepath)
@@ -589,9 +592,9 @@ namespace SMC_GUI
                 }
             }
         }
-        
+
         #endregion
-        
+
         private Image LocationIcon(int offsetX, int offsetY, BitmapImage IconMap, int width, int height)
         {
             // offsetX   координата X (в пикселях)
@@ -657,19 +660,19 @@ namespace SMC_GUI
 
         public void ModsName()
         {
-           ModName.Text = Description.name;
+            ModName.Text = Description.name;
         }
 
         public void CreateMessageBox()
         {
             string text = "";
-            
+
             int i = MessageList.Count;
             int m = 0;
             string Em = "";
             foreach (var message in MessageList)
             {
-                if(message.Value == true)
+                if (message.Value == true)
                 {
                     m++;
                 }
@@ -678,7 +681,7 @@ namespace SMC_GUI
                     m--;
                     Em += message.Key;
                 }
-                
+
             }
 
             if (m == i)
@@ -695,12 +698,12 @@ namespace SMC_GUI
                 Console.WriteLine($"Возможны проблемы: {text}");
             }
 
-            
+
         }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            
+
             CheckBox checkBox = sender as CheckBox;
 
             foreach (var block in RichTextBox.Document.Blocks)
@@ -714,16 +717,16 @@ namespace SMC_GUI
                             Item item = taggedRun.Tag; // selectedItem<Item>
 
                             // Получаем ингредиент из тега CheckBox
-                            
-                             Ingredient ingredient = new Ingredient(checkBox.Tag as Ingredient);
+
+                            Ingredient ingredient = new Ingredient(checkBox.Tag as Ingredient);
 
                             ingredient.quantity = Int32.Parse(ingredient.textBox.Text);
 
-                            if (ingredient.quantity <= 0 )
+                            if (ingredient.quantity <= 0)
                             {
                                 ingredient.quantity = 1;
                             }
-                            
+
                             // Добавляем ингредиент в список элемента
                             item.ingredientList.Add(ingredient);
                             _isProgrammaticChange = false;
@@ -836,7 +839,7 @@ namespace SMC_GUI
             return drawing;
         }
 
-        public string ViewTemplate(string ingredientQuantity,string ingredientID,string name)
+        public string ViewTemplate(string ingredientQuantity, string ingredientID, string name)
         {
             string template = $"Ingredient Quantity: {ingredientQuantity}\n\n" +
                               $"Ingredient ID: {ingredientID}\n\n" +
@@ -845,9 +848,7 @@ namespace SMC_GUI
             return template;
         }
 
-       
-
-        public void Save( string output, List<Item> data)
+        public void Save(string output, List<Item> data)
         {
             string json = JsonConvert.SerializeObject(data, Formatting.Indented);
 
@@ -857,7 +858,7 @@ namespace SMC_GUI
             {
                 File.WriteAllText(filePath, json);
                 MessageBox.Show($"Данные успешно сохранены в файл: {filePath}");
-                
+
             }
             catch (Exception ex)
             {
@@ -901,13 +902,12 @@ namespace SMC_GUI
             // Показ уведомления с количеством элементов
             MessageBox.Show($"Craftbot: {items.Count}\nHideout: {itemsHideout.Count}");
 
-            folder.CreateFolder(AppDomain.CurrentDomain.BaseDirectory,
-                                Path.GetDirectoryName(Config.OutputDirectory));
+            folder.CreateFolder(AppDomain.CurrentDomain.BaseDirectory + Path.GetDirectoryName(Config.OutputDirectory));
 
-            string filenamecraftbot = Description.name.Replace(" ","") + ".json";
-            string pathcraftbot =  Config.OutputDirectory + filenamecraftbot;
+            string filenamecraftbot = Description.name.Replace(" ", "") + ".json";
+            string pathcraftbot = Config.OutputDirectory + filenamecraftbot;
 
-            if (items.Count > 0 )
+            if (items.Count > 0)
             {
                 Save(pathcraftbot, items);
             }
@@ -927,7 +927,6 @@ namespace SMC_GUI
             string info = "";
             Item item = null; // Инициализируем item как null
             string ingredientsString = "";
-            CheckBox checkBox = sender as CheckBox;
 
             // Список для хранения Paragraph, которые необходимо удалить
             List<Paragraph> paragraphsToRemove = new List<Paragraph>();
@@ -959,16 +958,16 @@ namespace SMC_GUI
                                         $"ItemId: {item.itemId}\n" + // Измените это на ваш идентификатор элемента
                                         $"Quantity: {item.quantity}\n" +
                                         $"CraftTime: {item.craftTime}\n" +
-                                        $"IngredientList:\n"+
+                                        $"IngredientList:\n" +
                                         $"{ingredientsString}"; // Предполагаем, что это перечисление
                             }
 
-                            
+
                         }
                     }
                 }
             }
-            
+
 
             // Удаляем все собранные Paragraph после завершения итерации
             foreach (var paragraph in paragraphsToRemove)
@@ -980,9 +979,9 @@ namespace SMC_GUI
             if (item != null) // Проверяем, что item не null для добавления информации
             {
                 AddParagraphToRichTextBox(info, item);
-                
+
             }
-            
+
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -1028,7 +1027,7 @@ namespace SMC_GUI
         public string name { get; set; }
         [JsonIgnore]
         public TextBox textBox { get; set; }
-        
+
         public string comment { get; set; }
 
         public Ingredient(Ingredient ingredient)
@@ -1064,7 +1063,7 @@ namespace SMC_GUI
 
     public class Description
     {
-        public string  creatorId { get; set; }
+        public string creatorId { get; set; }
         public string description { get; set; }
         public string fileId { get; set; }
         public string localId { get; set; }
@@ -1114,7 +1113,7 @@ namespace SMC_GUI
         public string Size { get; set; }
 
         [XmlElement("Index")]
-        public List<Index> Indices { get; set; }  
+        public List<Index> Indices { get; set; }
     }
 
     public class Index

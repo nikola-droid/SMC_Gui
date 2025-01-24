@@ -1,7 +1,7 @@
 ﻿using EngLibrary;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System;
 
 namespace SMC_GUI
 {
